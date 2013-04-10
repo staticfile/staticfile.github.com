@@ -38,7 +38,7 @@ if __name__ == '__main__':
     libs = []
 
     for lib in scan_dir(path):
-        item = {"value": lib, "ver": scan_dir(path + '/' + lib)}
+        item = {"value": lib, "ver": [{"n": v} for v in scan_dir(path + '/' + lib)]}
         package = json.load(open(path + '/' + lib + '/package.json', 'r'))
         item["filename"] = package["filename"]
         libs.append(item)

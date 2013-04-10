@@ -1,7 +1,7 @@
 $('#key').typeahead({
   name: 'statics',
   prefetch: 'http://staticfile.org/libs.json',
-  template: '{{#ver}}<div class="item">{{value}}/{{n}}/{{filename}}</div>{{/ver}}',
+  template: '{{#ver}}<div class="item">http://libs.qiniudn.com/{{value}}/{{n}}/{{filename}}</div>{{/ver}}',
   engine: Hogan
 });
 

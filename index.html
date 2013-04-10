@@ -1,115 +1,30 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="开放静态文件 - 为开源库稳定、快速的免费 CDN 服务">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="开放静态文件 - 为开源库稳定、快速的免费 CDN 服务">
+    <title>开放静态文件 CDN</title>
+    <link href="assets/css/typo.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
 
-<title>
-  
-    开放静态文件 CDN
-  
-</title>
+<h1 class="typo-h1"><a href="/">开放静态文件 CDN</a></h1>
+<ul id="nav">
+    <a href="https://github.com/staticfile/static/wiki/Faq">帮助</a>
+    <a href="https://github.com/staticfile/static/issues">意见反馈</a>
+</ul>
+<p id="purpose" class="typo">
+    我们的目标是提供这样一个仓库，让它尽可能全面收录优秀的开源库，并免费为之提供 CDN 加速服务，使之有更好的访问速度和稳定的环境。同时，我们也提供开源库源接入的入口，让所有人都可以提交开源库，包括 JS、CSS、image 和 swf 等静态文件。
+</p>
 
-<link href="assets/css/bootstrap.css" rel="stylesheet">
-<link href="assets/css/pygments-manni.css" rel="stylesheet">
+<div id="query"><input id="key" type="text" /></div>
 
-<!--[if lt IE 9]>
-  <script src="/assets/js/html5shiv.js"></script>
-<![endif]-->
+<div id="footer" class="typo"><small>&copy; COPYRIGHT 2013 staticfile.org</small></div>
 
-  </head>
-  <body>
-
-    <div class="navbar-wrapper">
-    <div class="container">
-
-        <div class="navbar navbar-inverse">
-            <div class="container">
-                <a class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </a>
-                <a class="navbar-brand" href="/">开放静态文件 CDN</a>
-                <div class="nav-collapse collapse">
-                    <ul class="nav">
-                        <li class="active"><a href="/">首页</a></li>
-                        <li><a href="/about">关于我们</a></li>
-                        <li><a href="https://github.com/staticfile/static/wiki/Faq">帮助</a></li>
-                        <li><a href="https://github.com/staticfile/static/issues">意见反馈</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</div>
-
-
-<div class="carousel slide">
-    <div class="carousel-inner">
-        <div class="item active">
-            <img src="../../assets/img/slide.jpg" alt="">
-            <div class="container">
-                <div class="carousel-caption">
-                    <h1>ABOUT THE CDN</h1>
-                    <p class="lead">我们的目标是提供这样一个仓库，让它尽可能全面收录优秀的开源库，并免费为之提供 CDN 加速服务，使之有更好的访问速度和稳定的环境。同时，我们也提供开源库源接入的入口，让所有人都可以提交开源库，包括 JS、CSS、image 和 swf 等静态文件。</p>
-                    <a class="btn btn-large btn-success" href="https://github.com/staticfile/static/wiki/How-to">提交开源文件</a>
-                    <a class="btn btn-large" href="https://github.com/staticfile/static/wiki/Getting-start">了解如何使用</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-</div>
-
-
-
-<!-- Marketing messaging and featurettes
-================================================== -->
-<!-- Wrap the rest of the page in another container to center all the content. -->
-
-<div class="container marketing">
-
-    <div class="row">
-        <div class="col-span-4">
-            <h2><i class="glyphicon glyphicon-th-list"></i> 全面</h2>
-            <p>目前像包括 Google Ajax Library 等在内提供的 CDN，使用起来却都有些局限，因为他们只提供了部分 JS 库。</p>
-            <p>当然，我们还可以有像 CDNJS 这样的平台，存储了大部分主流的 JS 库，甚至 CSS、image 和 swf，但国内的访问速度却不是很理想，并且缺少很多国内优秀开源库。我们希望提供更完整的资源。</p>
-            <p><a class="btn btn-success" href="https://github.com/staticfile/static/wiki/How-to">提交开源产品</a></p>
-        </div>
-        <div class="col-span-4">
-            <h2><i class="glyphicon glyphicon-ok-circle"></i> 开放</h2>
-            <p>所有人均可通过 Pull Request 提供开源的库，一旦被官方仓库 Merge，则会自动存储到 CDN 上。目前采用人员审核的方式添加，标准是在 Github 上的 star 数超过 100 个。</p>
-            <p>当然，像放在 Google Code 等仓库上的优秀开源库。我们也会一一添加。希望大家也一起来帮助我们完善这个库，让更多人更好地享受这些开源成果。</p>
-            <p><a class="btn btn-success" href="https://github.com/staticfile/static/tree/master/libs">资源列表</a></p>
-        </div>
-        <div class="col-span-4">
-            <h2><i class="glyphicon glyphicon-leaf"></i> 稳定+免费</h2>
-            <p>目前所有静态文件，均由存储于国内优秀的云存储服务商「七牛存储」提供的高速、稳定的CDN上。由 <a href="https://github.com/sofish">sofish</a>、<a href="https://github.com/hfcorriez">hfcorriez</a> 以及 <a href="https://github.com/ikbear">ikbear</a> 更新和维护。</p>
-            <p><a href="http://www.qiniu.com/"><img src="https://a248.e.akamai.net/camo.github.com/887ea2b38b08e33bfdef9afa488b063455104e15/687474703a2f2f71696e697574656b2e636f6d2f696d616765732f6c6f676f2d322e706e67"></a></p>
-            <p><a href="http://www.qiniu.com" class="btn btn-success">七牛存储</a></p>
-        </div>
-    </div>
-
-    <hr class="featurette-divider">
-
-    &copy; COPYRIGHT 2013 StaticFile.ORG
-
-</div>
-    <script src="/assets/js/jquery.js"></script>
-<script src="/assets/js/bootstrap.min.js"></script>
-<script src="/assets/js/application.js"></script>
-<script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-39768626-1', 'staticfile.org');
-    ga('send', 'pageview');
-</script>
-
-  </body>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/typehead-0.9.1.min.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
 </html>

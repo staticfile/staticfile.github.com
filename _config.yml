@@ -6,5 +6,4 @@ pygments:     true
 permalink:    pretty
 
 # Server
-source:       ./src
 url:          http://staticfile.org

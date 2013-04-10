@@ -35,7 +35,13 @@ if __name__ == '__main__':
 
     print "Prepare scan dir to build json..."
 
-    libs = [{"value": lib, "ver": scan_dir(path + '/' + lib)} for lib in scan_dir(path)]
+    libs = []
+
+    for lib in scan_dir(path):
+        item = {"value": lib, "ver": scan_dir(path + '/' + lib)}
+        package = json.load(open(path + '/' + lib + '/package.json', 'r'))
+        item["filename"] = package["filename"]
+        libs.append(item)
 
     print "Prepare to save file..."
 

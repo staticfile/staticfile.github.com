@@ -35,7 +35,7 @@ if __name__ == '__main__':
 
     print "Prepare scan dir to build json..."
 
-    libs = [{"name": lib, "ver": scan_dir(path + '/' + lib)} for lib in scan_dir(path)]
+    libs = [{"value": lib, "ver": scan_dir(path + '/' + lib)} for lib in scan_dir(path)]
 
     print "Prepare to save file..."
 

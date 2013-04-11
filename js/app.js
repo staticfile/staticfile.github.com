@@ -1,8 +1,42 @@
+var clip;
+
+ZeroClipboard.setDefaults({
+  moviePath: 'js/copy/ZeroClipboard.swf'
+});
+
+clip = new ZeroClipboard();
+clip.addEventListener('complete', function(client, copy) {
+  alert('链接地址已复制：\n\n' + copy.text);
+});
+
+$(document).on('mouseenter', '.item', function(){
+  var offset, swf, item, menu;
+
+  item = $(this);
+  offset = item.offset()
+  swf = $('#global-zeroclipboard-html-bridge');
+  menu = $('.tt-dropdown-menu');
+  padding = menu.offset();
+
+  if(!menu.find(swf).length) menu.append(swf);
+
+  swf.css({
+    top: parseInt(offset.top - padding.top, 10) + 'px',
+    left: parseInt(offset.left - padding.left, 10) + 'px',
+    width: item.width() + 15 + 'px',
+    height: item.height() + 15 + 'px'
+  })
+
+  clip.setText($(this).text());
+  clip.glue(item[0]);
+})
+
 $('#key').typeahead({
   name: 'statics',
-  prefetch: 'http://staticfile.org/libs.json',
-  template: '{{#ver}}<div class="item">http://libs.qiniudn.com/{{value}}/{{n}}/{{filename}}</div>{{/ver}}',
-  engine: Hogan
+  prefetch: 'libs.json',
+  template: '{{#vers}}<div class="item">http://libs.qiniudn.com/{{name}}/{{ver}}/{{value}}</div>{{/vers}}',
+  engine: Hogan,
+  limit: 10000
 });
 
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

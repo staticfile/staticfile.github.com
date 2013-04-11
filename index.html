@@ -6,7 +6,7 @@
     <meta name="description" content="开放静态文件 - 为开源库稳定、快速的免费 CDN 服务">
     <title>开放静态文件 CDN</title>
     <style type="text/css">
-        html {color:#666;background:#fff;-moz-text-size-adjust:100%;-ms-text-size-adjust:100%;}
+        html {color:#666;background:#fff;-moz-text-size-adjust:100%;-ms-text-size-adjust:100%;overflow-y:scroll;}
 
         :focus{outline:none;}
         ::-moz-selection, ::-webkit-selection, ::selection {background-color:#233;color:#fff;}
@@ -88,11 +88,12 @@
         body{width:1000px;margin:30px auto;position:relative;}
         h1 a{color:#666;}
 
-        .tt-dropdown-menu{position:relative!important;}
-        .tt-dropdown-menu .item{padding:8px 10px;background:#f8f8f8;}
-        .tt-dropdown-menu .item:nth-child(odd){background:#eee;}
-        .tt-dropdown-menu .tt-is-under-cursor .item{background:#08c;color:#fff;}
+        .tt-dropdown-menu{position:relative!important;display:block!important;}
+        .item{padding:10px 5px;border-bottom:1px dotted #ddd;}
+        .item:hover{background:#f3f3f3!important;}
+        .tt-dropdown-menu .tt-is-under-cursor .item{background:#f8f8f8;}
 
+        #global-zeroclipboard-html-bridge{position:fixed;}
         #nav{position:absolute;right:0;top:0;}
         #query{margin-bottom:30px;}
         #key{display:block;width:1000px;}
@@ -116,6 +117,7 @@
 
 <script src="/js/jquery.js"></script>
 <script src="/js/typehead-0.9.1.min.js"></script>
+<script src="/js/copy/ZeroClipboard.js"></script>
 <script src="/js/app.js"></script>
 </body>
 </html>

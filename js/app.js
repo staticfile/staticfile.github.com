@@ -1,3 +1,5 @@
+if(window.localStorage) localStorage.clear();
+
 var clip;
 
 ZeroClipboard.setDefaults({

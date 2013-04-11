@@ -29,7 +29,7 @@ $(document).on('mouseover', '.btn', function(){
     height: item.height() + 3 + 'px'
   })
 
-  clip.setText($(this).text());
+  clip.setText($(this).data('url'));
   clip.glue(item[0]);
 })
 

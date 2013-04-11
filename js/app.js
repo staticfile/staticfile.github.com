@@ -38,10 +38,18 @@ $('#key').typeahead({
   prefetch: 'libs.json',
   template: '<div class="item"><p><strong>{{value}}</strong></p>' +
     '复制版本：{{#vers}}<span class="btn" data-url="http://libs.qiniudn.com/{{value}}/{{ver}}/{{filename}}">{{ver}}</span> {{/vers}}' +
-    '</div>',
+    '<cite class="nocopy">不能复制?</cite>' +
+    '<ul class="list">{{#vers}}<li>http://libs.qiniudn.com/{{value}}/{{ver}}/{{filename}}</li>{{/vers}}' +
+    '</ul></div>',
   engine: Hogan,
   limit: 10000
 });
+
+$('body').on('mouseenter', '.nocopy', function() {
+  var list = $(this).parent().find('.list')
+    , action = list.is(':visible') ? 'slideUp' : 'slideDown';
+  list[action]('fast');
+})
 
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

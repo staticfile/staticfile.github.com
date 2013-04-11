@@ -11,7 +11,7 @@ clip.addEventListener('complete', function(client, copy) {
   alert('链接地址已复制：\n\n' + copy.text);
 });
 
-$(document).on('mouseenter', '.item', function(){
+$(document).on('mouseover', '.btn', function(){
   var offset, swf, item, menu;
 
   item = $(this);
@@ -25,8 +25,8 @@ $(document).on('mouseenter', '.item', function(){
   swf.css({
     top: parseInt(offset.top - padding.top, 10) + 'px',
     left: parseInt(offset.left - padding.left, 10) + 'px',
-    width: item.width() + 15 + 'px',
-    height: item.height() + 15 + 'px'
+    width: item.width() + 3 + 'px',
+    height: item.height() + 3 + 'px'
   })
 
   clip.setText($(this).text());
@@ -36,7 +36,9 @@ $(document).on('mouseenter', '.item', function(){
 $('#key').typeahead({
   name: 'statics',
   prefetch: 'libs.json',
-  template: '{{#vers}}<div class="item">http://libs.qiniudn.com/{{name}}/{{ver}}/{{value}}</div>{{/vers}}',
+  template: '<div class="item"><p><strong>{{value}}</strong></p>' +
+    '复制版本：{{#vers}}<span class="btn" data-url="http://libs.qiniudn.com/{{name}}/{{ver}}/{{value}}">{{ver}}</span> {{/vers}}' +
+    '</div>',
   engine: Hogan,
   limit: 10000
 });

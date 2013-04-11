@@ -37,7 +37,7 @@ $('#key').typeahead({
   name: 'statics',
   prefetch: 'libs.json',
   template: '<div class="item"><p><strong>{{value}}</strong></p>' +
-    '复制版本：{{#vers}}<span class="btn" data-url="http://libs.qiniudn.com/{{name}}/{{ver}}/{{value}}">{{ver}}</span> {{/vers}}' +
+    '复制版本：{{#vers}}<span class="btn" data-url="http://libs.qiniudn.com/{{value}}/{{ver}}/{{filename}}">{{ver}}</span> {{/vers}}' +
     '</div>',
   engine: Hogan,
   limit: 10000

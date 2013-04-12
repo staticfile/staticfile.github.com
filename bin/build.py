@@ -41,7 +41,7 @@ if __name__ == '__main__':
         item = {"value": lib, "vers": [i for i in reversed([{"ver": v} for v in scan_dir(path + '/' + lib)])]}
         package = json.load(open(path + '/' + lib + '/package.json', 'r'))
         item["filename"] = package["filename"]
-        item["tokens"] = package["filename"].split('/')
+        item["tokens"] = package["filename"].split('/').reverse()
         libs.append(item)
 
     print "Prepare to save file..."

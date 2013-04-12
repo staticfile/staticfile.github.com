@@ -36,7 +36,7 @@ $(document).on('mouseover', '.btn', function(){
 $('#key').typeahead({
   name: 'statics',
   prefetch: 'libs.json',
-  template: '<div class="item"><p><strong>{{value}}</strong> <span id="{{value}}" class="btn btn-tips" data-url="http://libs.qiniudn.com/{{value}}/{{version}}/{{filename}}">复制最新版：{{version}}</span></p>' +
+  template: '<div class="item"><p><strong>{{value}}</strong> <span id="{{value}}" class="btn btn-tips" data-url="http://libs.qiniudn.com/{{value}}/{{version}}/{{filename}}">{{version}}</span></p>' +
     '<div class="item-inner">点击复制：{{#vers}}<span class="btn" data-url="http://libs.qiniudn.com/{{value}}/{{ver}}/{{filename}}">{{ver}}</span> {{/vers}}' +
     '<cite class="nocopy">不能复制?</cite>' +
     '<ul class="list">{{#vers}}<li>http://libs.qiniudn.com/{{value}}/{{ver}}/{{filename}}</li>{{/vers}}' +

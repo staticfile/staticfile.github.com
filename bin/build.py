@@ -3,6 +3,7 @@ import os
 import json
 import argparse
 
+
 def scan_dir(path):
     path = os.path.realpath(path)
 
@@ -37,7 +38,7 @@ if __name__ == '__main__':
     libs = []
 
     for lib in scan_dir(path):
-        item = {"value": lib, "vers": [{"ver": v} for v in scan_dir(path + '/' + lib)]}
+        item = {"value": lib, "vers": [i for i in reversed([{"ver": v} for v in scan_dir(path + '/' + lib)])]}
         package = json.load(open(path + '/' + lib + '/package.json', 'r'))
         item["filename"] = package["filename"]
         item["tokens"] = package["filename"].split('/')

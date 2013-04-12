@@ -1,6 +1,6 @@
 if(window.localStorage) localStorage.clear();
 
-var clip;
+var clip, current;
 
 ZeroClipboard.setDefaults({
   moviePath: 'js/copy/ZeroClipboard.swf'
@@ -36,20 +36,32 @@ $(document).on('mouseover', '.btn', function(){
 $('#key').typeahead({
   name: 'statics',
   prefetch: 'libs.json',
-  template: '<div class="item"><p><strong>{{value}}</strong></p>' +
-    '复制版本：{{#vers}}<span class="btn" data-url="http://libs.qiniudn.com/{{value}}/{{ver}}/{{filename}}">{{ver}}</span> {{/vers}}' +
+  template: '<div class="item"><p><strong>{{value}}</strong> <span id="{{value}}" class="btn btn-important" data-url="http://libs.qiniudn.com/{{value}}/{{version}}/{{filename}}">{{version}}</span></p>' +
+    '<div class="item-inner">复制版本：{{#vers}}<span class="btn" data-url="http://libs.qiniudn.com/{{value}}/{{ver}}/{{filename}}">{{ver}}</span> {{/vers}}' +
     '<cite class="nocopy">不能复制?</cite>' +
     '<ul class="list">{{#vers}}<li>http://libs.qiniudn.com/{{value}}/{{ver}}/{{filename}}</li>{{/vers}}' +
-    '</ul></div>',
+    '</ul></div></div>',
   engine: Hogan,
   limit: 10000
-});
+}).on('keydown', function(e) {
+    if (e.keyCode == 38 || e.keyCode == 40) {
+      $('.item-inner').hide();
+      $('.tt-is-under-cursor .item-inner').show();
+    }
+  }
+);
 
 $('body').on('mouseenter', '.nocopy', function() {
   var list = $(this).parent().find('.list')
     , action = list.is(':visible') ? 'slideUp' : 'slideDown';
   list[action]('fast');
 })
+
+$('.tt-dropdown-menu').on('mousemove', function() {
+    $('.item-inner').hide();
+    $('.tt-is-under-cursor .item-inner').show();
+  }
+);
 
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

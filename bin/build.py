@@ -43,6 +43,7 @@ if __name__ == '__main__':
         package = json.load(open(path + '/' + lib + '/package.json', 'r'))
         item["filename"] = package["filename"]
         item["tokens"] = re.split('[^a-zA-Z0-9]', package["filename"])
+        item["version"] = package["version"]
         libs.append(item)
 
     print "Prepare to save file..."

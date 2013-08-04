@@ -1,137 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html ng-app>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="开放静态文件 - 为开源库稳定、快速的免费 CDN 服务">
     <title>开放静态文件 CDN</title>
-    <style type="text/css">
-        html {color:#666;background:#fff;-moz-text-size-adjust:100%;-ms-text-size-adjust:100%;overflow-y:scroll;}
-
-        :focus{outline:none;}
-        ::-moz-selection, ::-webkit-selection, ::selection {background-color:#233;color:#fff;}
-
-            /* 内外边距通常让各个浏览器样式的表现位置不同 */
-        body, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {margin:0;padding:0;}
-
-            /* 要注意表单元素并不继承父级 font 的问题 */
-        body, button, input, select, textarea {font:500 15px/1.5 Hiragino Sans GB, WenQuanYi Micro Hei,sans-serif;vertical-align:text-bottom;}
-
-        a{color:#08c;}
-
-            /* 块/段落引用 */
-        blockquote {background:#f8f8f8;color:#666;padding:5px 1em;margin:1.5em 0 1em;font-family: Hiragino Mincho ProN, sans-serif;}
-        blockquote blockquote {padding:0 0 0 1em;margin-left:2em;border-left:0.4em solid #ddd;}
-
-            /* Firefox 以外，元素没有下划线，需添加 */
-        acronym, abbr {border-bottom:1px dotted;font-variant:normal;}
-        i{font-family:Georgia,san-serif;}
-
-            /* 添加鼠标问号，进一步确保应用的语义是正确的（要知道，交互他们也有洁癖，如果你不去掉，那得多花点口舌） */
-        abbr {cursor:help;}
-
-            /* 一致的 del 样式 */
-        del {text-decoration:line-through;}
-
-        address, caption, cite, code, dfn, em, th, var {font-style:normal;font-weight:400;}
-            /* 去掉列表前的标识, li 会继承，大部分网站通常用列表来很多内容，所以应该当去 */
-        ul, ol {list-style:none;}
-
-            /* 让链接在 hover 状态下显示下划线 */
-        a:hover {text-decoration:underline;}
-
-            /* 默认不显示下划线，保持页面简洁 */
-        ins, a {text-decoration:none;}
-
-            /* 专名号：虽然 u 已经重回 html5 Draft，但在所有浏览器中都是可以使用的，
-             * 要做到更好，向后兼容的话，添加 class="typo-u" 来显示专名号
-             * 关于 <u> 标签：http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-u-element
-             * 被放弃的是 4，之前一直搞错 http://www.w3.org/TR/html401/appendix/changes.html#idx-deprecated
-             * 一篇关于 <u> 标签的很好文章：http://html5doctor.com/u-element/
-             */
-        u, .typo-u {text-decoration:underline;}
-
-            /* 标记，类似于手写的荧光笔的作用 */
-        mark {background:#fffdd1;}
-
-            /* 代码片断 */
-        pre, code {font-family:Courier, monospace;white-space:pre-wrap;word-wrap:break-word;color:#00a000;}
-
-        pre{line-height:1.2;}
-        code{background:#f8f8f8;padding:0 3px;border-radius:2px;}
-        pre code{background:none;border:none;padding:0;border-radius:0;}
-
-            /* 底部印刷体、版本等标记 */
-        small {font-size:12px;color:#888;}
-
-        .clearfix:before, .clearfix:after {content:"";display:table;}
-        .clearfix:after {clear:both;}
-        .clearfix {zoom:1;}
-
-        .typo pre, .typo-pre{background:#f8f8f8;padding:10px;}
-
-            /* 保证块/段落之间的空白隔行 */
-        .typo p, .typo pre, .typo ul, .typo ol, .typo dl, .typo form, .typo hr, .typo table,
-        .typo-p, .typo-pre, .typo-ul, .typo-ol, .typo-dl, .typo-form, .typo-hr, .typo-table {margin:1em 0;}
-
-        h1, h2, h3, h4, h5, h6{font-weight:500;font-weight:800\9;color:#333;}
-
-            /* 标题应该更贴紧内容，并与其他块区分，margin 值要相应做优化 */
-        .typo h1, .typo h2, .typo h3, .typo h4, .typo h5, .typo h6,
-        .typo-h1, .typo-h2, .typo-h3, .typo-h4, .typo-h5, .typo-h6 {line-height:1.1;color:#233;margin:1.5em 0 0.5em;}
-        .typo h1, .typo-h1 {font-size:1.8em;}
-        .typo h2, .typo-h2 {font-size:1.6em;}
-        .typo h3, .typo-h3 {font-size:1.4em;}
-        .typo h4, .typo-h4 {font-size:1.2em;}
-        .typo h5, .typo h6, .typo-h5, .typo-h6 {font-size:1em;}
-
-        body{width:1000px;margin:30px auto;position:relative;}
-        h1 a{color:#666;}
-
-        .tt-dropdown-menu{position:relative!important;display:block!important;}
-        .item{padding:10px 15px;border-bottom:1px dotted #ddd;color:#999;cursor:pointer;position:relative;}
-        .item:hover{background:#f3f3f3!important;}
-        .tt-suggestion{background:#fff;pointer-evens:none;}
-        .tt-suggestion:nth-child(odd){background:#f8f8f8;}
-        .tt-dropdown-menu .tt-is-under-cursor .item{background:#f4ffec !important;}
-        .item p{margin-bottom:10px;color:#666;}
-        .item .btn{background:#08c;color:#fff;border-radius:3px;cursor:pointer;padding:1px 3px;}
-        .item .btn-tips{background:#ddd;}
-        .item ul{list-style:disc;margin:1em 1.2em;}
-        .item-inner{display:none;}
-        .item ul li{padding:2px 0;}
-        .item .list{display:none;}
-        .item .show{display:block;}
-
-        .nocopy{position:absolute;right:10px;top:13px;font-size:12px;color:#08c;display:none;}
-        .item:hover .nocopy{display:inline;}
-
-        #global-zeroclipboard-html-bridge{position:fixed;}
-        #nav{position:absolute;right:0;top:0;}
-        #query{margin-bottom:30px;}
-        #key, .tt-hint{display:block;width:990px;border:2px solid #ddd;padding:3px;}
-        #footer{clear:both;padding:30px 0;border-top:1px solid #ddd;}
-    </style>
+    <link rel="stylesheet" href="static/typo.css" />
+    <link rel="stylesheet" href="static/app.css" />
 </head>
-<body>
+<body ng-controller="libListCtrl">
 
-<h1 class="typo-h1"><a href="/">开放静态文件 CDN</a></h1>
-<div id="nav">
-    <a href="https://github.com/staticfile/static#readme">新增一个库</a>
-    <a href="https://github.com/staticfile/static/issues">意见反馈</a>
+<div id="header" class="wrapper">
+  <h1 class="typo-h1"><a href="/">开放静态文件 CDN</a></h1>
+  <div id="nav">
+    <a href="https://github.com/staticfile/static#readme">新增一个库</a> /
+    <a href="https://github.com/staticfile/static/issues">意见反馈</a> /
     <a href="https://github.com/staticfile/static/wiki/Faq">帮助</a>
-</div>
-<p id="purpose" class="typo-p">
+  </div>
+  <p id="purpose" class="typo-p">
     我们的目标是提供这样一个仓库，让它尽可能全面收录优秀的开源库，并免费为之提供 CDN 加速服务，使之有更好的访问速度和稳定的环境。同时，我们也提供开源库源接入的入口，让所有人都可以提交开源库，包括 JS、CSS、image 和 swf 等静态文件。
-</p>
+  </p>
 
-<div id="query"><input id="key" type="text" /></div>
+  <div id="query"><input id="key" type="text" ng-model="query" /></div>
+</div>
 
-<div id="footer" class="typo"><small>&copy; COPYRIGHT 2013 staticfile.org</small></div>
+<div id="search">
+  <ol id="libs">
+    <li class="item typo" ng-repeat="lib in libs | filter:query">
+      <h3>{{lib.name}}</h3>
+      <pre class="current"><code>//libs.qiniudn.com/{{lib.name}}/{{lib.version}}/{{lib.filename}}</code> <small>[最新版]</small></pre>
+      <p class="item-description">{{lib.description}}</p>
+      <div class="item-meta typo-p">
+        <a href="{{lib.homepage}}">网站</a> /
+        <a href="{{lib.repositories}}">源代码</a> /
+        <a href="#id_{{lib.name}}" data-toggle="showhide">其他版本 &rarr;</a>
+      </div>
+      <table class="item-others" id="id_{{lib.name}}">
+        <tr ng-repeat="ver in lib.versions">
+          <th>{{ver}}</th>
+          <td><pre><code>//libs.qiniudn.com/{{ver}}}/{{lib.name}}/{{lib.filename}}</code></pre></td>
+        </tr>
+      </table>
+    </li>
+  </ol>
+</div>
 
-<script src="/js/jquery.js"></script>
-<script src="/js/typehead-0.9.1.min.js"></script>
-<script src="/js/copy/ZeroClipboard.js"></script>
-<script src="/js/app.js"></script>
+<div id="footer" class="typo wrapper">
+  <small>&copy; COPYRIGHT 2013 <a href="http://staticfile.org">staticfile.org</a>. Built upon love.</small>
+</div>
+
+<script src="static/angular-1.0.7.min.js"></script>
+<script src="static/jquery-1.9.1.min.js"></script>
+<script src="static/app.js"></script>
 </body>
 </html>

@@ -1,10 +1,28 @@
+
+
 // fetch lib data
 function libListCtrl($scope) {
-  $.getJSON('http://api.staticfile.org/v1/search?q=jquery').done(function(data) {
-    $scope.$apply(function(){
-      $scope.libs = data['libs'];
+
+  var popular = 'jquery'; // change it to popular list
+
+  var fetch = function(tag) {
+
+    tag = tag || popular;
+
+    return $.getJSON('http://api.staticfile.org/v1/search?q=' + tag).done(function(data) {
+      $scope.$apply(function(){
+        $scope.libs = data['libs'];
+      });
     });
-  });
+  };
+
+  // page loaded
+  fetch();
+
+  // query change
+  $scope.fetchLibs = function(e) {
+    fetch(e.query);
+  }
 }
 
 //libListCtrl.$inject = ['$scope'];

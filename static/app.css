@@ -42,3 +42,10 @@ a{color:#1abc9c;}
     .item .current small{display:none;}
     .item .current{border-bottom:1px solid #ddd;border-top:1px solid #ddd;padding:10px 0;margin-bottom:10px;}
 }
+
+@media all and (max-width:320px) {
+    h1{font-size:28px!important;}
+
+    #query{border-width:5px 0;width:100%;position:absolute;bottom:-10px;left:0;}
+    #header{position:relative;padding-bottom:40px;}
+}

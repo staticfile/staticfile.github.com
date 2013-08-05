@@ -30,7 +30,8 @@ a{color:#1abc9c;}
 #nav{color:#ecf0f1;}
 #libs{border-bottom:1px solid #ecf0f1;}
 #purpose{clear:both;max-width:600px;padding-top:30px;margin:0 auto 30px;text-align:center;}
-#footer{font-family:Georgia,serif;font-style:italic;}
+#footer{font-family:Georgia,serif;font-style:italic;text-align:center;}
+#power{margin:2em 0 1em;}
 
 @media all and (max-width:768px) {
     #query{width:100%;}
@@ -49,6 +50,7 @@ a{color:#1abc9c;}
 @media all and (max-width:320px) {
     h1{font-size:28px!important;}
 
+    #footer img{width:200px;}
     #query{border-width:5px 0;width:100%;position:absolute;bottom:-10px;left:0;}
     #header{position:relative;padding-bottom:40px;}
 }

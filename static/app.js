@@ -61,7 +61,9 @@ $(document).on('mouseenter', 'pre', function(e) {
 // older file(s)
 $('#search').on('click', '[data-toggle="showhide"]', function(e) {
   e.preventDefault();
-  $($(this).attr('href')).show('fast');
+  var $target = $($(this).attr('href'));
+
+  $target.is(':visible') ? $target.show('fast') : $target.slideUp('fast');
 });
 
 // tracker

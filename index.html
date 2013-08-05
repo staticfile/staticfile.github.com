@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="static/typo.css" />
     <link rel="stylesheet" href="static/app.css" />
     <link rel="shortcut icon" href="/favicon.ico" />
+    <script src="static/angular-1.1.5.min.js"></script>
 </head>
 <body ng-controller="libListCtrl">
 
@@ -32,8 +33,8 @@
       <pre class="current"><code>//libs.qiniudn.com/{{lib.name}}/{{lib.version}}/{{lib.filename}}</code> <small>[最新版]</small></pre>
       <p class="item-description">{{lib.description}}</p>
       <div class="item-meta typo-p">
-        <a href="{{lib.homepage}}">网站</a> /
-        <a href="{{lib.repositories[0].url}}" target="_blank">源代码</a> /
+        <a ng-if="{{lib.homepage}}" href="{{lib.homepage}}">网站</a> /
+        <a ng-if="{{lib.repositories[0].url}}" href="{{lib.repositories[0].url}}" target="_blank">源代码</a> /
         <a href="#id_{{lib.name}}" data-toggle="showhide">其他版本 &rarr;</a>
       </div>
       <table class="item-others" id="id_{{lib.name}}">
@@ -50,7 +51,6 @@
   <small>&copy; COPYRIGHT 2013 <a href="http://staticfile.org">staticfile.org</a>. Built upon love.</small>
 </div>
 
-<script src="static/angular-1.0.7.min.js"></script>
 <script src="static/jquery-1.9.1.min.js"></script>
 <script src="static/app.js"></script>
 </body>

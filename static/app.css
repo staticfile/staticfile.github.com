@@ -39,5 +39,6 @@ a{color:#1abc9c;}
     #nav a{color:#ffc;}
 
     .item h3, .item .current{float:none;}
+    .item .current small{display:none;}
     .item .current{border-bottom:1px solid #ddd;border-top:1px solid #ddd;padding:10px 0;margin-bottom:10px;}
 }

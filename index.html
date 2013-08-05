@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="static/typo.css" />
     <link rel="stylesheet" href="static/app.css" />
     <link rel="shortcut icon" href="/favicon.ico" />
-    <script src="static/angular-1.1.5.min.js"></script>
 </head>
 <body ng-controller="libListCtrl">
 
@@ -33,8 +32,8 @@
       <pre class="current"><code>//libs.qiniudn.com/{{lib.name}}/{{lib.version}}/{{lib.filename}}</code> <small>[最新版]</small></pre>
       <p class="item-description">{{lib.description}}</p>
       <div class="item-meta typo-p">
-        <a href="{{lib.homepage}}">网站</a> <span ng-show="{{lib.homepage}}">/</span>
-        <a ng-show="{{lib.repositories[0].url}}" href="{{lib.repositories[0].url}}" target="_blank">源代码</a> <span ng-show="{{lib.repositories[0].url}}">/</span>
+        <a href="{{lib.homepage}}" ng-show="lib.homepage">网站</a> <span ng-show="lib.homepage">/</span>
+        <a ng-show="lib.repositories[0].url" href="{{lib.repositories[0].url}}" target="_blank">源代码</a> <span ng-show="lib.repositories[0].url">/</span>
         <a href="#id_{{lib.name}}" data-toggle="showhide">其他版本 &rarr;</a>
       </div>
       <table class="item-others" id="id_{{lib.name}}">
@@ -52,6 +51,7 @@
 </div>
 
 <script src="static/jquery-1.9.1.min.js"></script>
+<script src="static/angular-1.1.5.min.js"></script>
 <script src="static/app.js"></script>
 </body>
 </html>

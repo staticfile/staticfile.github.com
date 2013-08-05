@@ -63,7 +63,7 @@ $('#search').on('click', '[data-toggle="showhide"]', function(e) {
   e.preventDefault();
   var $target = $($(this).attr('href'));
 
-  $target.is(':visible') ? $target.show('fast') : $target.slideUp('fast');
+  $target.is(':visible') ? $target.slideUp('fast') : $target.show('fast');
 });
 
 // tracker

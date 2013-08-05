@@ -40,7 +40,7 @@
         <tr ng-repeat="asset in lib.assets">
           <th>{{asset.version}}</th>
           <td>
-             <pre ng-repeat="file in asset.files"><code>http://libs.qiniudn.com/{{asset.version}}/{{file}}</code></pre>
+             <pre ng-repeat="file in asset.files"><code>http://libs.qiniudn.com/{{lib.name}}/{{asset.version}}/{{file}}</code></pre>
           </td>
         </tr>
       </table>

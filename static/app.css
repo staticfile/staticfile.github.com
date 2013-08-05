@@ -20,7 +20,8 @@ a{color:#1abc9c;}
 .item-meta{color:#ddd;}
 
 #query{width:60%;margin:0 auto 3%;}
-#query input{width:100%;padding:10px;border:5px solid #16a085;text-align:center;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}
+#query input{width:100%;padding:10px;border:5px solid #16a085;text-align:center;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;-webkit-border-radius:0;}
+#query input:focus{outline:none;}
 
 #header{background:#1abc9c;color:#fff;}
 #header a{color:#fff;}

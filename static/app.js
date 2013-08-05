@@ -1,4 +1,14 @@
-
+// 顺延函数：如果上一个动作完成，则当前动作替换上一个
+function shift(fn, time) {
+  time = time || 50;
+  var queue = this._shift_fn, current;
+  queue ? queue.concat([fn, time]) : (queue = [[fn, time]]);
+  current = queue.pop();
+  clearTimeout(this._shift_timeout);
+  this._shift_timeout = setTimeout(function() {
+    current[0]();
+  }, current[1]);
+}
 
 // fetch lib data
 function libListCtrl($scope) {
@@ -21,7 +31,11 @@ function libListCtrl($scope) {
 
   // query change
   $scope.fetchLibs = function(e) {
-    fetch(e.query);
+
+    // 搜索顺延
+    shift(function(){
+      fetch(e.query);
+    })
   }
 }
 
@@ -58,7 +72,7 @@ $(document).on('mouseenter', 'pre', function(e) {
   }
 });
 
-// older file(s)
+// file(s)
 $('#search').on('click', '[data-toggle="showhide"]', function(e) {
   e.preventDefault();
   var $target = $($(this).attr('href'));

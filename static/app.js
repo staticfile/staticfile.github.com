@@ -1,6 +1,6 @@
 // 顺延函数：如果上一个动作完成，则当前动作替换上一个
 function shift(fn, time) {
-  time = time || 50;
+  time = time || 200;
   var queue = window._shift_fn, current;
   queue ? queue.concat([fn, time]) : (queue = [[fn, time]]);
   current = queue.pop();

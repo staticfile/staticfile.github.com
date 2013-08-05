@@ -29,9 +29,23 @@ a{color:#1abc9c;}
 #nav{float:right;}
 #nav{color:#ecf0f1;}
 #libs{border-bottom:1px solid #ecf0f1;}
+#about{max-width:600px;margin:0 auto;font-family:Hiragino Mincho ProN, serif;border-top:1px solid #ddd;border-bottom:1px solid #ddd;}
 #purpose{clear:both;max-width:600px;padding-top:30px;margin:0 auto 30px;text-align:center;}
 #footer{font-family:Georgia,serif;font-style:italic;text-align:center;}
 #power{margin:2em 0 1em;}
+
+
+.doc{background:#ecf0f1;border-top:10px solid #1abc9c;padding-top:30px;}
+.doc #about a{text-decoration:underline;}
+.doc #header{display:none;}
+.doc h3{border-top:1px solid #ddd;padding-top:1em;}
+.doc h3:first-of-type{border-top:none;}
+.doc h1{font-family:Hiragino Mincho ProN, Georgia serif;font-size:2.5em!important;}
+.doc h1 a{color:#333;}
+.doc h1, .doc #nav{float:none;text-align:center;}
+.doc #nav{color:#40a081;margin:1em 0}
+.doc #nav a{color:#16a085;}
+.doc pre{padding:10px 20px;background:#f8f8f8;line-height:1.2;}
 
 @media all and (max-width:768px) {
     #query{width:100%;}

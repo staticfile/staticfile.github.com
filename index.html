@@ -37,10 +37,10 @@
         <a href="#id_{{lib.name | legalname}}" data-toggle="showhide">所有版本及文件 &rarr;</a>
       </div>
       <table class="item-others" id="id_{{lib.name | legalname}}">
-        <tr ng-repeat="assert in lib.asserts">
-          <th>{{assert.version}}</th>
+        <tr ng-repeat="asset in lib.assets">
+          <th>{{asset.version}}</th>
           <td>
-             <pre ng-repeat="file in assert.files"><code>http://libs.qiniudn.com/{{assert.version}}/{{file}}</code></pre>
+             <pre ng-repeat="file in asset.files"><code>http://libs.qiniudn.com/{{asset.version}}/{{file}}</code></pre>
           </td>
         </tr>
       </table>

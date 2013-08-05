@@ -33,8 +33,8 @@
       <pre class="current"><code>//libs.qiniudn.com/{{lib.name}}/{{lib.version}}/{{lib.filename}}</code> <small>[最新版]</small></pre>
       <p class="item-description">{{lib.description}}</p>
       <div class="item-meta typo-p">
-        <a ng-if="{{lib.homepage}}" href="{{lib.homepage}}">网站</a> /
-        <a ng-if="{{lib.repositories[0].url}}" href="{{lib.repositories[0].url}}" target="_blank">源代码</a> /
+        <a ng-show="{{lib.homepage}}" href="{{lib.homepage}}">网站</a> /
+        <a ng-show="{{lib.repositories[0].url}}" href="{{lib.repositories[0].url}}" target="_blank">源代码</a> /
         <a href="#id_{{lib.name}}" data-toggle="showhide">其他版本 &rarr;</a>
       </div>
       <table class="item-others" id="id_{{lib.name}}">

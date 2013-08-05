@@ -27,6 +27,13 @@ function libListCtrl($scope) {
 
 //libListCtrl.$inject = ['$scope'];
 
+// return a legal name
+angular.module('static', []).filter('legalname', function(){
+  return function(input) {
+    return input.replace(/\./g, '_');
+  }
+});
+
 // select url text
 $(document).on('mouseenter', 'pre', function(e) {
   var doc = document

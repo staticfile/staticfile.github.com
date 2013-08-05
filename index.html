@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="static">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,11 +32,11 @@
       <pre class="current"><code>//libs.qiniudn.com/{{lib.name}}/{{lib.version}}/{{lib.filename}}</code> <small>[最新版]</small></pre>
       <p class="item-description">{{lib.description}}</p>
       <div class="item-meta typo-p">
-        <a href="{{lib.homepage}}" ng-show="lib.homepage">网站</a> <span ng-show="lib.homepage">/</span>
-        <a ng-show="lib.repositories[0].url" href="{{lib.repositories[0].url}}" target="_blank">源代码</a> <span ng-show="lib.repositories[0].url">/</span>
-        <a href="#id_{{lib.name}}" data-toggle="showhide">其他版本 &rarr;</a>
+        <a href="{{lib.homepage}}" ng-if="lib.homepage">网站</a> <span ng-if="lib.homepage">/</span>
+        <a ng-if="lib.repositories[0].url" href="{{lib.repositories[0].url}}" target="_blank">源代码</a> <span ng-if="lib.repositories[0].url">/</span>
+        <a href="#id_{{lib.name | legalname}}" data-toggle="showhide">其他版本 &rarr;</a>
       </div>
-      <table class="item-others" id="id_{{lib.name}}">
+      <table class="item-others" id="id_{{lib.name | legalname}}">
         <tr ng-repeat="ver in lib.versions">
           <th>{{ver}}</th>
           <td><pre><code>//libs.qiniudn.com/{{ver}}/{{lib.name}}/{{lib.filename}}</code></pre></td>

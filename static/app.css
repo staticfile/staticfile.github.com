@@ -20,7 +20,7 @@ a{color:#1abc9c;}
 .item-meta{color:#ddd;}
 
 #query{width:60%;margin:0 auto 3%;}
-#query input{width:100%;padding:10px;border:5px solid #16a085;text-align:center;}
+#query input{width:100%;padding:10px;border:5px solid #16a085;text-align:center;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}
 
 #header{background:#1abc9c;color:#fff;}
 #header a{color:#fff;}
@@ -29,3 +29,15 @@ a{color:#1abc9c;}
 #libs{border-bottom:1px solid #ecf0f1;}
 #purpose{clear:both;max-width:600px;padding-top:30px;margin:0 auto 30px;text-align:center;}
 #footer{font-family:Georgia,serif;font-style:italic;}
+
+@media all and (max-width:768px) {
+    #query{width:100%;}
+
+    h1{font-family:Hiragino Mincho ProN, Georgia serif;font-size:3em!important;}
+    h1, #nav{float:none;text-align:center;}
+    #nav{color:#40a081;}
+    #nav a{color:#ffc;}
+
+    .item h3, .item .current{float:none;}
+    .item .current{border-bottom:1px solid #ddd;border-top:1px solid #ddd;padding:10px 0;margin-bottom:10px;}
+}

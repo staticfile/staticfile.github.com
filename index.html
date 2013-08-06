@@ -29,8 +29,15 @@
   <ol id="libs">
     <li class="item typo" ng-repeat="lib in libs | filter:query">
       <h3>{{lib.name}}</h3>
-      <pre class="current"><code>http://libs.qiniudn.com/{{lib.name}}/{{lib.version}}/{{lib.filename}}</code> <small>[最新版]</small></pre>
       <p class="item-description">{{lib.description}}</p>
+      <table>
+        <tr ng-repeat="asset in [lib.assets[0]]">
+          <th><small>[最新版]</small> {{asset.version}}</th>
+          <td>
+            <pre ng-repeat="file in asset.files"><code>http://libs.qiniudn.com/{{lib.name}}/{{asset.version}}/{{file}}</code></pre>
+          </td>
+        </tr>
+      </table>
       <div class="item-meta typo-p">
         <a ng-if="lib.homepage" href="{{lib.homepage}}" target="_blank">网站</a> <span ng-if="lib.homepage">/</span>
         <a ng-if="lib.repositories[0].url" href="{{lib.repositories[0].url}}" target="_blank">源代码</a> <span ng-if="lib.repositories[0].url">/</span>

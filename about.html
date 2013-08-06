@@ -33,18 +33,18 @@
 
     <h3 id="howto">二、如何提交开源库</h3>
 
-    <p>Fork 这个仓库，新建一个开源库的目录，这个目录下可以有多个版本的目录（至少一个版本目录）如：</p>
+    <p><a href="https://github.com/staticfile/static" target="_blank">Fork 这个仓库</a>，在 libs/ 下新建一个目录，这个目录下可以有多个版本（至少一个版本）如：</p>
 
     <pre>.
-├── jquery
-│&nbsp;&nbsp; ├── 1.8.3
-│       └── jquery.min.js
+├── jquery                    ... 库名
+│&nbsp;&nbsp; ├── 1.8.3       ... 版本号
+│       └── jquery.min.js     ... 文件名，不带版本
 │&nbsp;&nbsp; ├── 1.9.1
 │       └── jquery.min.js
-└── package.json
+└── package.json              ... 最新版本文件的描述
     </pre>
 
-    <p>编辑 package.json 描述文件，这个文件描述最新版本的信息。具体写法请参照：<a href="/staticfile/static/blob/master">https://npmjs.org/doc/json.html</a>。</p>
+    <p>编辑 package.json 描述文件，这个文件描述最新版本的信息。具体写法请参照：<a href="https://github.com/staticfile/static/blob/master/libs/typo.css/package.json">libs/typo.css/package.json</a>。</p>
 
     <p>然后给这个仓库提交 Pull Request。理论上我们会用最快的速度验证、审核这个库。一旦 Pull Request 被 Merge，则马上可以能过 CDN 访问。</p>
 

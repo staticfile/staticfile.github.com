@@ -39,12 +39,12 @@
         </tr>
       </table>
       <div class="item-meta typo-p">
-        <a ng-if="lib.homepage" href="{{lib.homepage}}" target="_blank">网站</a> <span ng-if="lib.homepage">/</span>
-        <a ng-if="lib.repositories[0].url" href="{{lib.repositories[0].url}}" target="_blank">源代码</a> <span ng-if="lib.repositories[0].url">/</span>
-        <a href="#id_{{lib.name | legalname}}" data-toggle="showhide">所有版本及文件 &rarr;</a>
+        <a ng-if="lib.homepage" href="{{lib.homepage}}" target="_blank">网站</a> <span ng-if="lib.homepage && lib.repositories[0].url">/</span>
+        <a ng-if="lib.repositories[0].url" href="{{lib.repositories[0].url}}" target="_blank">源代码</a> <span ng-if="lib.repositories[0].url && (lib.assets.length > 1)">/</span>
+        <a ng-if="lib.assets.length > 1" href="#id_{{lib.name | legalname}}" data-toggle="showhide">其他版本 &rarr;</a>
       </div>
-      <table class="item-others" id="id_{{lib.name | legalname}}">
-        <tr ng-repeat="asset in lib.assets">
+      <table ng-if="lib.assets.length > 1" class="item-others" id="id_{{lib.name | legalname}}">
+        <tr ng-repeat="asset in lib.assets.slice(1)">
           <th>{{asset.version}}</th>
           <td>
              <pre ng-repeat="file in asset.files"><code>http://libs.qiniudn.com/{{lib.name}}/{{asset.version}}/{{file}}</code></pre>

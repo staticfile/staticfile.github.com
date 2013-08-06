@@ -29,7 +29,7 @@
   <ol id="libs">
     <li class="item typo" ng-repeat="lib in libs | filter:query">
       <h3>{{lib.name}}</h3>
-      <pre class="current"><code>http://libs.qiniudn.com/{{lib.name}}/{{lib.version}}/{{lib.filename}}</code> <small>[最新版]</small></pre>
+      <pre class="current"><code>http://cdn.staticfile.org/{{lib.name}}/{{lib.version}}/{{lib.filename}}</code> <small>[最新版]</small></pre>
       <p class="item-description">{{lib.description}}</p>
       <div class="item-meta typo-p">
         <a ng-if="lib.homepage" href="{{lib.homepage}}" target="_blank">网站</a> <span ng-if="lib.homepage">/</span>
@@ -40,7 +40,7 @@
         <tr ng-repeat="asset in lib.assets">
           <th>{{asset.version}}</th>
           <td>
-             <pre ng-repeat="file in asset.files"><code>http://libs.qiniudn.com/{{lib.name}}/{{asset.version}}/{{file}}</code></pre>
+             <pre ng-repeat="file in asset.files"><code>http://cdn.staticfile.org/{{lib.name}}/{{asset.version}}/{{file}}</code></pre>
           </td>
         </tr>
       </table>

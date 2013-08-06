@@ -40,8 +40,8 @@ a{color:#1abc9c;}
 .doc #header{display:none;}
 .doc h3{border-top:1px solid #ddd;padding-top:1em;}
 .doc h3:first-of-type{border-top:none;}
-.doc h1{font-family:Hiragino Mincho ProN, Georgia serif;font-size:2.5em!important;}
-.doc h1 a{color:#333;}
+.doc h1{font-family:Hiragino Mincho ProN, Georgia serif;font-size:2.5em!important;text-shadow:none;}
+.doc h1 a{color:#666;}
 .doc h1, .doc #nav{float:none;text-align:center;}
 .doc #nav{color:#ddd;margin:1em 0}
 .doc #nav a{color:#16a085;}

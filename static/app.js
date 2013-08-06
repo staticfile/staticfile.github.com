@@ -13,7 +13,7 @@ function shift(fn, time) {
 // fetch lib data
 function libListCtrl($scope) {
 
-  var popular = 'jquery'; // change it to popular list
+  var popular = 'jquery&count=10'; // change it to popular list
 
   var fetch = function(tag) {
 

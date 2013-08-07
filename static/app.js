@@ -32,11 +32,9 @@ function libListCtrl($scope) {
   // query change
   $scope.fetchLibs = function(e) {
 
-    $scope.isSearch = !!e.query;
-
     // 搜索顺延
     shift(function(){
-      fetch(e.query || e);
+      fetch(e.query);
     })
   }
 }

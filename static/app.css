@@ -8,10 +8,6 @@ a{color:#1abc9c;}
 ::-moz-selection{background:#1abc9c;}
 ::selection{background:#1abc9c;}
 
-input:focus::-moz-placeholder{color:#fff;}
-input:focus::-webkit-input-placeholder{color:#fff;}
-input:focus::-ms-input-placeholder{color:#fff;}
-
 .wrapper{padding:2% 10%;}
 
 .item{background:#ecf0f1;padding:2% 10%;}

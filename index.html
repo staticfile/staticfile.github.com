@@ -28,7 +28,8 @@
   <iframe src="http://ghbtns.com/github-btn.html?user=staticfile&repo=static&type=watch&count=true" allowtransparency="true" frameborder="0" height="20px" scrolling="0" width="85px"></iframe>
   <iframe src="http://ghbtns.com/github-btn.html?user=staticfile&repo=static&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"></iframe>
 </div>
-<div ng-if="!query" id="popular" class="wrapper">
+
+<div ng-if="!query && isPopular" id="popular" class="wrapper">
   <span ng-repeat="lib in libs"><a href="#lib_{{lib.name}}"><img ng-src="static/logos/{{lib.name}}.png"/></a></span>
 </div>
 

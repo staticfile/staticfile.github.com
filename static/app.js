@@ -17,7 +17,7 @@ function libListCtrl($scope) {
 
   var fetch = function(tag) {
 
-    tag = tag ? ('search?q=' + tag) : popular;
+    tag = tag ? ('search?q=' + tag) : (($scope.isPopular = true), popular);
 
     return $.getJSON('http://api.staticfile.org/v1/' + tag).done(function(data) {
       $scope.$apply(function(){
@@ -31,6 +31,8 @@ function libListCtrl($scope) {
 
   // query change
   $scope.fetchLibs = function(e) {
+
+    $scope.isPopular = false;
 
     // 搜索顺延
     shift(function(){

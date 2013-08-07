@@ -24,6 +24,10 @@ a{color:#1abc9c;}
 #query input{width:100%;padding:10px;border:5px solid #16a085;text-align:center;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;-webkit-border-radius:0;}
 #query input:focus{outline:none;}
 
+#popular{text-align:center;background:#ECF0F1;border-bottom:1px solid #ddd;padding:20px 0 8px;}
+#popular span{display:inline-block;margin:0 10px 10px;line-height:1;}
+#popular img{height:30px;}
+
 #header{background:#1abc9c;color:#fff;}
 #header a{color:#fff;}
 #nav{float:right;}
@@ -36,7 +40,6 @@ a{color:#1abc9c;}
 #githubbtn iframe{display:inline-block;}
 #footer{font-family:Georgia,serif;font-style:italic;text-align:center;}
 #power{margin:2em 0 1em;}
-
 
 .doc{background:#ecf0f1;border-top:10px solid #1abc9c;padding-top:30px;}
 .doc #about a{text-decoration:underline;}

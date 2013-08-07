@@ -13,13 +13,13 @@ function shift(fn, time) {
 // fetch lib data
 function libListCtrl($scope) {
 
-  var popular = 'jquery&count=10'; // change it to popular list
+  var popular = 'popular'; // change it to popular list
 
   var fetch = function(tag) {
 
-    tag = tag || popular;
+    tag = tag ? ('search?q=' + tag) : popular;
 
-    return $.getJSON('http://api.staticfile.org/v1/search?q=' + tag).done(function(data) {
+    return $.getJSON('http://api.staticfile.org/v1/' + tag).done(function(data) {
       $scope.$apply(function(){
         $scope.libs = data['libs'];
       });
@@ -32,9 +32,11 @@ function libListCtrl($scope) {
   // query change
   $scope.fetchLibs = function(e) {
 
+    $scope.isSearch = !!e.query;
+
     // 搜索顺延
     shift(function(){
-      fetch(e.query);
+      fetch(e.query || e);
     })
   }
 }

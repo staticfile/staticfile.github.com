@@ -21,18 +21,21 @@
   <p id="purpose" class="typo-p">
     我们的目标是提供这样一个仓库，让它尽可能全面收录优秀的开源库，并免费为之提供 CDN 加速服务，使之有更好的访问速度和稳定的环境。同时，我们也提供开源库源接入的入口，让所有人都可以提交开源库，包括 JS、CSS、image 和 swf 等静态文件。
   </p>
-  <div id="query"><input id="key" type="text" ng-model="query" ng-change="fetchLibs(this)" placeholder="请输入开源库的名称 .." autofocus autocomplete="off"/></div>
+  <div id="query"><input id="key" type="text" ng-model="query" ng-change="fetchLibs()" placeholder="请输入开源库的名称 .." autofocus autocomplete="off"/></div>
 </div>
 
 <div id="githubbtn" class="wrapper">
   <iframe src="http://ghbtns.com/github-btn.html?user=staticfile&repo=static&type=watch&count=true" allowtransparency="true" frameborder="0" height="20px" scrolling="0" width="85px"></iframe>
   <iframe src="http://ghbtns.com/github-btn.html?user=staticfile&repo=static&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"></iframe>
 </div>
+<div ng-if="!isSearch && !query" id="popular" class="wrapper">
+  <span ng-repeat="lib in libs"><a href="#lib_{{lib.name}}"><img src="static/logos/{{lib.name}}.png"/></a></span>
+</div>
 
 <div id="search">
   <ol id="libs">
     <li class="item typo" ng-repeat="lib in libs | filter:query.split(' ')[0]">
-      <h3>{{lib.name}}</h3>
+      <h3 id="lib_{{lib.name}}">{{lib.name}}</h3>
       <p class="item-description">{{lib.description}}</p>
       <table>
         <tr ng-repeat="asset in [lib.assets[0]]">

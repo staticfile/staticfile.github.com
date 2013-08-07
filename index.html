@@ -31,7 +31,7 @@
 
 <div id="search">
   <ol id="libs">
-    <li class="item typo" ng-repeat="lib in libs | filter:query">
+    <li class="item typo" ng-repeat="lib in libs | filter:query.split(' ')[0]">
       <h3>{{lib.name}}</h3>
       <p class="item-description">{{lib.description}}</p>
       <table>

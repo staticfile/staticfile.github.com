@@ -24,9 +24,9 @@
   <div id="query"><input id="key" type="text" ng-model="query" ng-change="fetchLibs(this)" placeholder="请输入开源库的名称 .." autofocus autocomplete="off"/></div>
 </div>
 
-<div ng-if="libs" id="githubbtn" class="wrapper">
-  <iframe src="http://ghbtns.com/github-btn.html?user=staticfile&repo=static&type=watch&count=true" allowtransparency="true" frameborder="0" height="20px" scrolling="0" width="85px"></iframe>
-  <iframe src="http://ghbtns.com/github-btn.html?user=staticfile&repo=static&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"></iframe>
+<div id="githubbtn" class="wrapper">
+  <iframe ng-src="http://ghbtns.com/github-btn.html?user=staticfile&repo=static&type=watch&count=true" allowtransparency="true" frameborder="0" height="20px" scrolling="0" width="85px"></iframe>
+  <iframe ng-src="http://ghbtns.com/github-btn.html?user=staticfile&repo=static&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"></iframe>
 </div>
 
 <div ng-if="!query && isPopular" id="popular" class="wrapper">

@@ -49,6 +49,28 @@
     </pre>
 
     <p>编辑 package.json 描述文件，这个文件描述最新版本的信息。具体写法请参照：<a href="https://github.com/staticfile/static/blob/master/libs/typo.css/package.json">libs/typo.css/package.json</a>。</p>
+    <pre>
+{
+    "name": "项目名",                      // 项目名要与文件夹名一致
+    "filename": "主文件名，比如 XYZ.js",
+    "version": "1.0",
+    "description": "项目简介",
+    "homepage": "项目主页，如 http://staticfile.org",
+    "keywords": [],
+    "maintainers": [
+       {
+           "name": "作者/维护者",
+           "web": "http://staticfile.org"
+       }
+    ],
+    "repositories": [
+        {
+            "type": "git",                // svn 等
+            "url": "https://github.com/staticfile/static"
+        }
+    ]
+}
+    </pre>
 
     <p>然后给这个仓库提交 Pull Request。理论上我们会用最快的速度验证、审核这个库。一旦 Pull Request 被 Merge，则马上可以能过 CDN 访问。</p>
 

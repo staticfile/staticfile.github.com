@@ -1,6 +1,6 @@
 html{overflow-y:scroll;}
 body{position:relative;}
-h1{float:left;font-family:Hiragino Mincho ProN;font-size:2em!important;line-height:1em;color: #fff9d6;font-weight:bold;text-shadow:0px 0px 0 rgb(208,208,208),1px 1px 0 rgb(160,160,160),2px 2px 0 rgb(113,113,113), 2px 2px 0 rgb(66,66,66),3px 3px 2px rgba(0,0,0,0.2),3px 3px 1px rgba(0,0,0,0.1),0px 0px 2px rgba(0,0,0,.2);}
+h1{float:left;font-family:Hiragino Mincho ProN, Apple LiSung, STSong, Simsum Georgia serif;font-size:2em!important;line-height:1em;color: #fff9d6;font-weight:bold;text-shadow:0px 0px 0 rgb(208,208,208),1px 1px 0 rgb(160,160,160),2px 2px 0 rgb(113,113,113), 2px 2px 0 rgb(66,66,66),3px 3px 2px rgba(0,0,0,0.2),3px 3px 1px rgba(0,0,0,0.1),0px 0px 2px rgba(0,0,0,.2);}
 h1 a{color:#fff;}
 pre{border:none;}
 a{color:#1abc9c;}
@@ -33,7 +33,7 @@ a{color:#1abc9c;}
 #nav{float:right;}
 #nav{color:#ecf0f1;}
 #libs{border-bottom:1px solid #ecf0f1;}
-#about{max-width:600px;margin:0 auto;font-family:Hiragino Mincho ProN, serif;border-top:1px solid #ddd;border-bottom:1px solid #ddd;}
+#about{max-width:600px;margin:0 auto;font-family:Hiragino Mincho ProN, STSong, Simsum Georgia serif;border-top:1px solid #ddd;border-bottom:1px solid #ddd;}
 #purpose{clear:both;max-width:600px;padding-top:30px;margin:0 auto 30px;}
 #purpose, #githubbtn{text-align:center;}
 #githubbtn{padding:15px 0 10px;background:#16a085;}
@@ -47,7 +47,7 @@ a{color:#1abc9c;}
 .doc #githubbtn{background:none;}
 .doc h3{border-top:1px solid #ddd;padding-top:1em;}
 .doc h3:first-of-type{border-top:none;}
-.doc h1{font-family:Hiragino Mincho ProN, Georgia serif;font-size:2.5em!important;text-shadow:none;}
+.doc h1{font-size:2.5em!important;text-shadow:none;}
 .doc h1 a{color:#666;}
 .doc h1, .doc #nav{float:none;text-align:center;}
 .doc #nav{color:#ddd;margin:1em 0}

@@ -51,9 +51,13 @@
     <p>编辑 package.json 描述文件，这个文件描述最新版本的信息。具体写法请参照：<a href="https://github.com/staticfile/static/blob/master/libs/typo.css/package.json">libs/typo.css/package.json</a>。</p>
     <pre>
 {
+    // 这三项让你的文件能正常被索引到
     "name": "项目名",                      // 项目名要与文件夹名一致
     "filename": "主文件名，比如 XYZ.js",
     "version": "1.0",
+
+
+    // 其他
     "description": "项目简介",
     "homepage": "项目主页，如 http://staticfile.org",
     "keywords": [],

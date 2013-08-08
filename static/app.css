@@ -54,6 +54,11 @@ a{color:#1abc9c;}
 .doc #nav a{color:#16a085;}
 .doc pre{padding:10px 20px;background:#f8f8f8;line-height:1.2;}
 
+.doc .prettyprint{font-family: Courier, "Courier New", monospace;border:none;border-bottom:3px solid #ddd;background:#f9f9f9;padding:15px 15px 0;}
+.doc .com{color:#888;}
+.doc .pun{color:#999;}
+.doc .str{color:#333;}
+
 @media all and (max-width:768px) {
     #query{width:100%;}
 

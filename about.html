@@ -6,6 +6,7 @@
     <meta name="description" content="开放静态文件 - 为开源库稳定、快速的免费 CDN 服务">
     <title>简介 - 开放静态文件 CDN </title>
     <link rel="stylesheet" href="http://libs.qiniudn.com/typo.css/1.1/typo.css" />
+    <link rel="stylesheet" href="http://cdn.staticfile.org/prettify/r298/prettify.min.css" />
     <link rel="stylesheet" href="static/app.css" />
     <link rel="shortcut icon" href="/favicon.ico" />
 </head>
@@ -39,40 +40,41 @@
 
     <p><a href="https://github.com/staticfile/static" target="_blank">Fork 这个仓库</a>，在 libs/ 下新建一个目录，这个目录下可以有多个版本（至少一个版本）如：</p>
 
-    <pre>.
-├── jquery                    ... 库名
-│   ├── 1.8.3                 ... 版本号
-│       └── jquery.min.js     ... 文件名，不带版本
+    <pre class="prettyprint lang-bash">.
+├── jquery                    # ... 库名
+│   ├── 1.8.3                 # ... 版本号
+│       └── jquery.min.js     # ... 文件名，不带版本
 │   ├── 1.9.1
 │       └── jquery.min.js
-└── package.json              ... 最新版本文件的描述
+└── package.json              # ... 最新版本文件的描述
     </pre>
 
     <p>编辑 package.json 描述文件，这个文件描述最新版本的信息。具体写法请参照：<a href="https://github.com/staticfile/static/blob/master/libs/typo.css/package.json">libs/typo.css/package.json</a>。</p>
-    <pre>
+    <pre class="prettyprint lang-js">
 {
-    // 这三项让你的文件能正常被索引到
-    "name": "项目名",                      // 项目名要与文件夹名一致
-    "filename": "主文件名，比如 XYZ.js",
-    "version": "1.0",
+  // 这三项让你的文件能正常被索引到
+  // 项目名要与文件夹名一致
+  "name": "项目名",
+  "filename": "主文件名，比如 XYZ.js",
+  "version": "1.0",
 
-
-    // 其他
-    "description": "项目简介",
-    "homepage": "项目主页，如 http://staticfile.org",
-    "keywords": [],
-    "maintainers": [
-       {
-           "name": "作者/维护者",
-           "web": "http://staticfile.org"
-       }
-    ],
-    "repositories": [
-        {
-            "type": "git",                // svn 等
-            "url": "https://github.com/staticfile/static"
-        }
-    ]
+  // 其他
+  "description": "项目简介",
+  "homepage": "项目主页，如 http://staticfile.org",
+  "keywords": [],
+  "maintainers": [
+    {
+      "name": "作者/维护者",
+      "web": "http://staticfile.org"
+    }
+  ],
+  "repositories": [
+    {
+      // svn 等
+      "type": "git",
+      "url": "https://github.com/staticfile/static"
+    }
+  ]
 }
     </pre>
 
@@ -97,7 +99,7 @@
 </div>
 
 <script src="http://libs.qiniudn.com/jquery/1.10.2/jquery.min.js"></script>
-<script src="http://libs.qiniudn.com/angular.js/1.1.5/angular.min.js"></script>
+<script src="http://cdn.staticfile.org/prettify/r298/run_prettify.js"></script>
 <script src="static/app.js"></script>
 </body>
 </html>

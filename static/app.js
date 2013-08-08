@@ -88,5 +88,5 @@ $('#search').on('click', '[data-toggle="showhide"]', function(e) {
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-ga('create', 'UA-39768626-1', 'staticfile.org');
+ga('create', 'UA-43035690-1', 'staticfile.org');
 ga('send', 'pageview');

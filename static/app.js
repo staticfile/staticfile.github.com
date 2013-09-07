@@ -81,3 +81,18 @@ $('#search').on('click', '[data-toggle="showhide"]', function(e) {
 
   $target.is(':visible') ? $target.slideUp('fast') : $target.show('fast');
 });
+
+// provides clear button on search box
+$('#key').on('keyup keydown change focus', function(e) {
+  if ($(this).val().length > 0)
+    $('#query-closebtn').css('visibility', 'visible');
+  else
+    $('#query-closebtn').css('visibility', 'hidden');
+});
+
+// makes clear button work
+$('#query-closebtn').on('click', function(e) {
+  $('#key').val('');
+  $(this).css('visibility', 'hidden');
+  $('#key').focus(); // brings back focus to search box
+});

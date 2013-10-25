@@ -78,6 +78,7 @@ a{color:#1abc9c;}
 @media all and (max-width:320px) {
     h1{font-size:28px!important;}
 
+    #install{display:none;}
     #footer img{width:200px;}
     #query{border-width:5px 0;width:100%;position:absolute;bottom:-10px;left:0;}
     #header{position:relative;padding-bottom:40px;}

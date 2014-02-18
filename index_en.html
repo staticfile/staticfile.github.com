@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="开放静态文件 - 为开源库提供稳定、快速的免费 CDN 服务">
-    <title>开放静态文件 CDN - 为开源库提供稳定、快速的免费 CDN 服务</title>
+    <meta name="description" content="StaticFile CDN - a stable / fast / free CDN for open-source libs">
+    <title>StaticFile CDN - a stable / fast / free CDN for open-source libs</title>
     <link rel="stylesheet" href="http://cdn.staticfile.org/typo.css/1.1/typo.css" />
     <link rel="stylesheet" href="static/app.css" />
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -12,18 +12,20 @@
 <body ng-controller="libListCtrl">
 
 <div id="header" class="wrapper">
-  <h1 class="typo-h1"><a href="/">开放静态文件 CDN</a></h1>
+  <h1 class="typo-h1"><a href="/">Staticfile CDN</a></h1>
   <div id="nav">
-    <a href="about.html#howto">新增一个库</a> /
-    <a href="https://github.com/staticfile/static/issues" target="_blank">意见反馈</a> /
-    <a href="about.html">简介</a> /
-    <a href="index_en.html">English</a>
+    <a href="/">Home</a> /
+    <a href="about.html#howto">Add one</a> /
+    <a href="https://github.com/staticfile/static/issues" target="_blank">Feedback</a> /
+    <a href="about_en.html">About</a> /
+    <a href="index.html">中文</a>
   </div>
   <p id="purpose" class="typo-p">
-    我们的目标是提供这样一个仓库，让它尽可能全面收录优秀的开源库，并免费为之提供 CDN 加速服务，使之有更好的访问速度和稳定的环境。同时，我们也提供开源库源接入的入口，让所有人都可以提交开源库，包括 JS、CSS、image 和 swf 等静态文件。
+    Our purpse is to provide a warehouse that stores great open-source libs as mush as possiable and server them in a stable & fast CDN service (in China). In addition, we also providing you a enterance to submit lib(s), including JS / CSS / Images & Swf Files.
   </p>
-  <pre class="install"><em>$</em> npm install -g sfile <small>// 安装工具，<a href="https://github.com/staticfile/cli#readme" target="_blank">使用说明</a></small></pre>
-  <div id="query"><input id="key" type="text" ng-model="query" ng-change="fetchLibs(this)" placeholder="请输入开源库的名称 .." autofocus autocomplete="off"/></div>
+  <pre class="install"><em>$</em> npm install -g sfile <small>
+CLI tool，<a href="https://github.com/staticfile/cli#readme" target="_blank">instruction.</a></small></pre>
+  <div id="query"><input id="key" type="text" ng-model="query" ng-change="fetchLibs(this)" placeholder="Search libs .." autofocus autocomplete="off"/></div>
 </div>
 
 <div id="githubbtn" class="wrapper">
@@ -42,16 +44,16 @@
       <p class="item-description">{{lib.description}}</p>
       <table>
         <tr ng-repeat="asset in [lib.assets[0]]">
-          <th><small>[最新版]</small> {{asset.version}}</th>
+          <th><small>LATEST</small> {{asset.version}}</th>
           <td>
             <pre ng-repeat="file in asset.files"><code>http://cdn.staticfile.org/{{lib.name}}/{{asset.version}}/{{file}}</code></pre>
           </td>
         </tr>
       </table>
       <div class="item-meta typo-p">
-        <a ng-if="lib.homepage" href="{{lib.homepage}}" target="_blank">网站</a> <span ng-if="lib.homepage">/</span>
-        <a ng-if="lib.repositories[0].url" href="{{lib.repositories[0].url}}" target="_blank">源代码</a> <span ng-if="lib.repositories[0].url">/</span>
-        <a ng-if="lib.assets.length > 1" href="#id_{{lib.name | legalname}}" data-toggle="showhide">其他版本 &rarr;</a>
+        <a ng-if="lib.homepage" href="{{lib.homepage}}" target="_blank">homepage</a> <span ng-if="lib.homepage">/</span>
+        <a ng-if="lib.repositories[0].url" href="{{lib.repositories[0].url}}" target="_blank">source</a> <span ng-if="lib.repositories[0].url">/</span>
+        <a ng-if="lib.assets.length > 1" href="#id_{{lib.name | legalname}}" data-toggle="showhide">other versions &rarr;</a>
       </div>
       <table ng-if="lib.assets.length > 1" class="item-others" id="id_{{lib.name | legalname}}">
         <tr ng-repeat="asset in lib.assets.slice(1)">
@@ -66,7 +68,7 @@
 </div>
 
 <div id="footer" class="typo wrapper">
-  <p id="power"><a href="http://qiniu.com" target="_blank"><img src="static/qiniu.png" /></a><br><small>CDN 加速由七牛存储提供</small></p>
+  <p id="power"><a href="http://qiniu.com" target="_blank"><img src="static/qiniu.png" /></a><br><small>CDN is providing by Qiniu Tech</small></p>
   <small>&copy; CopyRight 2013 <a href="http://staticfile.org">staticfile.org</a>. Built upon love.</small>
 </div>
 

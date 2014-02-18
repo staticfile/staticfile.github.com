@@ -31,34 +31,34 @@
 
 <div class="wrapper typo" id="about">
 
-    <h3>1. Background & Purpose</h3>
+    <h3>1. Background &amp; Purpose</h3>
 
-    <p>As Google Ajax Library, Microsoft ASP.net CDN, SAE, Baidu, Upyun and etc are providing free CDN for JS libs，but most of them only providing a service for JS libs. We find that CDNJS is storing much more libs, JS / CSS / Images / Swf, but it is slow in China and DONOT provide libs that created by Chinese developers.</p>
+    <p>As Google Ajax Library, Microsoft ASP.net CDN, SAE, Baidu, Upyun and etc are providing free CDN for JS libs, but most of them only provide services for JS libs. We find that CDNJS storing much more libs, JS / CSS / Images / Swf, but it is slow in China and DO NOT provide libs that created by Chinese developers.</p>
 
-    <p>So，we decide to provide a warehouse to store open-source libs as much as possible, and server them in a more stable / fast CDN. In addition, we also providing you a enterance to submit lib(s), including JS / CSS / Images & Swf Files.</p>
+    <p>So，we decide to provide a warehouse to store open-source libs as much as possible, and server them via a more stable / fast CDN. In addition, we also provide you an entrance to submit libs, including JS / CSS / Images &amp; SWF files.</p>
 
-    <h3 id="howto">2. How To Sumbit A Lib</h3>
+    <h3 id="howto">2. How to Sumbit A Lib</h3>
 
-    <p><a href="https://github.com/staticfile/static" target="_blank">Fork the repo</a>，create a folder under <code>libs/</code>, the folder should contains at least one lib. Like：</p>
+    <p><a href="https://github.com/staticfile/static" target="_blank">Fork the repo</a>，create a folder under <code>libs/</code>, the folder should contain at least one lib. Like：</p>
 
     <pre class="prettyprint lang-bash">.
 ├── jquery                    # ... name of the lib
 │   ├── 1.8.3                 # ... version
-│       └── jquery.min.js     # ... file name
-│   ├── 1.9.1
+│   |   └── jquery.min.js     # ... file name, w/o version number
+│   └── 1.9.1
 │       └── jquery.min.js
 └── package.json              # ... for the latest version
     </pre>
 
-    <p>Edit <code>package.json</code> ，a json file contains the infomation of the LATEST version of the lib. Here's a demo file in real-world side：<a href="https://github.com/staticfile/static/blob/master/libs/typo.css/package.json">libs/typo.css/package.json</a>.</p>
+    <p>Edit <code>package.json</code>, in which contains the information of the LATEST version of the lib. Here's an example file in real-world:<a href="https://github.com/staticfile/static/blob/master/libs/typo.css/package.json">libs/typo.css/package.json</a>.</p>
     <pre class="prettyprint lang-js">
 {
-  // please keep the folder name the same as the file name
+  // please keep the folder name the same with the file name
   "name": "name of lib",
-  "filename": "main file of the lib, like XYZ.js",
+  "filename": "core file of the lib, like XYZ.js",
   "version": "1.0",
 
-  // others
+  // misc
   "description": "description of the lib",
   "homepage": "the homepage of the lib, like http://staticfile.org",
   "keywords": [],
@@ -71,7 +71,7 @@
   ],
   "repositories": [
     {
-      // git, svn, hg & etc.
+      // git, svn, hg &amp; etc.
       "type": "git",
       "url": "https://github.com/staticfile/static"
     }
@@ -79,30 +79,30 @@
 }
     </pre>
 
-    <p>After this, send a Pull Request to us</code>. We will review it as soon as possible. Once the Pull Request is Merged，the files of the lib is accessable.</p>
+    <p>Then, send a Pull Request to us. We will review it as soon as possible. Once the Pull Request is Merged, the files of the lib is accessible.</p>
 
-    <p class="com">In order to keep fast and stable, we suggest you only submit libs that already have influence -- like, has 20 stars on Github.</p>
+    <p class="com">In order to keep fast and stable, we suggest you only submit libs that already have influences -- like, has 20 stars on Github.</p>
 
     <h3>3. Updates</h3>
 
-    <p>The repo fetchs updates from CDNJS everyday and user's pull request. If you can't find the right version at <a href="http://staticfile.org">staticfile.org</a>. Please create a issue or send us a Pull Request.</p>
+    <p>The repo fetchs updates from CDNJS everyday as well as users' pull request. If you can't find the right version at <a href="http://staticfile.org">staticfile.org</a>. Please open an issue or send us a Pull Request.</p>
 
-    <h3>4. Warning</h3>
+    <h3>4. Policy</h3>
 
-    <p>Must of the libs is Licensed under MIT / BSD, but there's libs like highcharts is free for personal use, not commercial. If you are intending to use this service, please read the license carefully.</p>
+    <p>Most libs are licensed under MIT / BSD. However, there're libs like Highcharts that are commercial but free for personal use. If you are intending to use this service, please read the license carefully.</p>
 
-    <h3>5. Author & CDN Provider</h3>
+    <h3>5. Author &amp; CDN Provider</h3>
 
-    <p>The Site/Repo is maintaining by <a href="https://github.com/sofish" target="_blank">Sofish</a>、<a href="https://github.com/hfcorriez" target="_blank">hfcorriez</a> & <a target="_blank" href="https://github.com/ikbear">ikbear</a>. And the CDN is providing by <a href="http://qiniu.com/" target="_blank">Qiu Tech</a>. We also fetching lib updates from <a href="https://github.com/cdnjs/cdnjs" target="_blank">CDNJS</a>.</p>
+    <p>The Site/Repo is maintained by <a href="https://github.com/sofish" target="_blank">Sofish</a>, <a href="https://github.com/hfcorriez" target="_blank">hfcorriez</a> &amp; <a target="_blank" href="https://github.com/ikbear">ikbear</a>. And the CDN is provided by <a href="http://qiniu.com/" target="_blank">Qiniu Tech</a>. We also fetch lib updates from <a href="https://github.com/cdnjs/cdnjs" target="_blank">CDNJS</a>.</p>
 
     <h3>6. License</h3>
 
-    <p>This repo is an open-source. Licensed under MIT.</p>
+    <p>This repo is open-source. Licensed under MIT.</p>
 </div>
 
 <div id="footer" class="typo wrapper">
-  <p id="power"><a href="http://qiniu.com" target="_blank"><img src="static/qiniu.png" /></a><br><small>CDN is providing by Qiniu Tech</small></p>
-  <small>&copy; CopyRight 2013 <a href="http://staticfile.org">staticfile.org</a>. Built upon love.</small>
+  <p id="power"><a href="http://qiniu.com" target="_blank"><img src="static/qiniu.png" /></a><br><small>CDN service provided by Qiniu Tech</small></p>
+  <small>&copy; Copyright 2013 <a href="http://staticfile.org">staticfile.org</a>. Built upon love.</small>
 </div>
 
 <script src="http://cdn.staticfile.org/prettify/r298/run_prettify.js"></script>

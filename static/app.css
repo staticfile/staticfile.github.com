@@ -23,6 +23,7 @@ a{color:#1abc9c;}
 #query{width:60%;margin:0 auto 3%;}
 #query input{width:100%;padding:10px;border:5px solid #16a085;text-align:center;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;-webkit-border-radius:0;}
 #query input:focus{outline:none;}
+#query-closebtn {position:relative;visibility:hidden;cursor: pointer;float: right;top:-32px;right:21px;width:16px;height:16px;background-image:url('cross.png');}
 
 #popular{text-align:center;background:#ECF0F1;border-bottom:1px solid #ddd;padding:20px 0 8px;}
 #popular span{display:inline-block;margin:0 10px 10px;line-height:1;}

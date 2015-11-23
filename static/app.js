@@ -19,7 +19,7 @@ function libListCtrl($scope) {
 
     tag = tag ? ('search?q=' + tag) : (($scope.isPopular = true), popular);
 
-    return $.getJSON('http://api.staticfile.org/v1/' + tag).done(function(data) {
+    return $.getJSON('http://api.staticfile.qiniu.io/v1/' + tag).done(function(data) {
       $scope.$apply(function(){
         $scope.libs = data['libs'];
       });
@@ -80,20 +80,4 @@ $('#search').on('click', '[data-toggle="showhide"]', function(e) {
   var $target = $($(this).attr('href'));
 
   $target.is(':visible') ? $target.slideUp('fast') : $target.show('fast');
-});
-
-// provides clear button on search box
-  $('#key').on('keyup keydown change focus', function(e) {
-    if ($(this).val().length > 0)
-      $('#query-closebtn').css('visibility', 'visible');
-    else
-      $('#query-closebtn').css('visibility', 'hidden');
-  });
-
-// makes clear button work
-  $('#query-closebtn').on('click', function(e) {
-    $('#key').val('');
-    $(this).css('visibility', 'hidden');
-    $('#key').focus(); // brings back focus to search box
-
 });

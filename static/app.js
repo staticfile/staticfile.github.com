@@ -29,6 +29,10 @@ function libListCtrl($scope) {
   // page loaded
   fetch();
 
+  $scope.httpDomain = 'http://cdn.staticfile.org';
+  $scope.httpsDomain = 'https://staticfile.qnssl.com';
+  $scope.domain = $scope.httpDomain;
+
   // query change
   $scope.fetchLibs = function(e) {
 

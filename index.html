@@ -40,16 +40,21 @@
   <span ng-repeat="lib in libs"><a href="#lib_{{lib.name}}"><img ng-src="static/logos/{{lib.name}}.png"/></a></span>
 </div>
 
+
 <div id="search">
   <ol id="libs">
     <li class="item typo" ng-repeat="lib in libs | filter:query.split(' ')[0]">
       <h3 id="lib_{{lib.name}}">{{lib.name}}</h3>
       <p class="item-description">{{lib.description}}</p>
+      <div class="protocal-toggler">
+        <a href ng-class="{'active': domain == httpDomain}" ng-click="domain = httpDomain">http</a>
+        <a href ng-class="{'active': domain == httpsDomain}" ng-click="domain = httpsDomain">https</a>
+      </div>
       <table>
         <tr ng-repeat="asset in [lib.assets[0]]">
           <th><small>[最新版]</small> {{asset.version}}</th>
           <td>
-            <pre ng-repeat="file in asset.files"><code>http://cdn.staticfile.org/{{lib.name}}/{{asset.version}}/{{file}}</code></pre>
+            <pre ng-repeat="file in asset.files"><code>{{domain}}/{{lib.name}}/{{asset.version}}/{{file}}</code></pre>
           </td>
         </tr>
       </table>
@@ -62,7 +67,7 @@
         <tr ng-repeat="asset in lib.assets.slice(1)">
           <th>{{asset.version}}</th>
           <td>
-             <pre ng-repeat="file in asset.files"><code>http://cdn.staticfile.org/{{lib.name}}/{{asset.version}}/{{file}}</code></pre>
+             <pre ng-repeat="file in asset.files"><code>{{domain}}/{{lib.name}}/{{asset.version}}/{{file}}</code></pre>
           </td>
         </tr>
       </table>

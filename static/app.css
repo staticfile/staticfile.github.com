@@ -20,6 +20,11 @@ a{color:#1abc9c;}
 .item table{width:100%;background:#fff;}
 .item table th{vertical-align:text-top;width:20%}
 
+.protocal-toggler{overflow:hidden}
+.protocal-toggler a{float: left;padding: 0.2em 1em;color:#a0a0a0;background-color: #e4e4e4}
+.protocal-toggler a.active{color:#fff;background:#1abc9c}
+
+
 #query{width:60%;margin:0 auto 3%;}
 #query input{width:100%;padding:10px;border:5px solid #16a085;text-align:center;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;-webkit-border-radius:0;}
 #query input:focus{outline:none;}

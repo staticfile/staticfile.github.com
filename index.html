@@ -32,8 +32,8 @@
 </div>
 
 <div id="githubbtn" class="wrapper">
-  <iframe ng-src="http://ghbtns.com/github-btn.html?user=staticfile&repo=static&type=watch&count=true" allowtransparency="true" frameborder="0" height="20px" scrolling="0" width="85px"></iframe>
-  <iframe ng-src="http://ghbtns.com/github-btn.html?user=staticfile&repo=static&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"></iframe>
+  <a class="github-button" href="https://github.com/staticfile/static" data-count-href="/staticfile/static/stargazers" data-count-api="/repos/staticfile/static#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star staticfile/static on GitHub">Star</a>
+  <a class="github-button" href="https://github.com/staticfile/static/fork" data-count-href="/staticfile/static/network" data-count-api="/repos/staticfile/static#forks_count" data-count-aria-label="# forks on GitHub" aria-label="Fork staticfile/static on GitHub">Fork</a>
 </div>
 
 <div ng-if="!query && isPopular" id="popular" class="wrapper">
@@ -83,6 +83,8 @@
 <script src="http://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
 <script src="http://cdn.staticfile.org/angular.js/1.4.8/angular.js"></script>
 <script src="static/app.js"></script>
+
+<script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
 <script type="text/javascript">
 // tracker
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

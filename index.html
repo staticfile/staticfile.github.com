@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Staticfile CDN</title>
+  <link rel="stylesheet" href="http://cdn.staticfile.org/typo.css/1.1/typo.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div id="wrapper">
+    <header id="top-header">
+      <div class="g-container">
+        <div class="g-row">
+          <div class="logo">
+            <img src="assets/images/light-logo.png" alt="">
+            <span class="typo-h1">Staticfile CDN</span>
+          </div>
+          <ul class="pull-right" id="nav">
+            <a :href="`about${language == 'en' ? '_en' : ''}.html#howto`"><li class="nav-item add-project">{{'add-one' | i18n}}</li></a>
+            <a href="https://github.com/staticfile/static/issues"><li class="nav-item">{{'feedback' | i18n}}</li></a>
+            <a :href="`about${language == 'en' ? '_en' : ''}.html`"><li class="nav-item">{{'about' | i18n}}</li></a>
+            <a :href="`/?ln=${language == 'en' ? 'zh' : 'en'}`"><li class="nav-item">{{'switch-language' | i18n}}</li></a>
+          </ul>
+        </div>
+        <div class="g-row" id="purpose">
+          <p id="purpose-text" class="typo-p">{{'purpose' | i18n}}</p>
+          <pre id="install"><em>$</em> npm install -g sfile <small><span v-html="i18n('install-tip')"></span></small></pre>
+        </div>
+        <div class="g-row">
+          <div id="query">
+            <input type="text" id="key" :placeholder="i18n('query-placeholder')" @keypress.prevent="onHeaderQueryPress" />
+          </div>
+        </div>
+      </div>
+    </header>
+    <div id="search-bar" ref="searchBar" class="sticky">
+      <div class="g-container">
+        <div class="logo">
+          <img src="assets/images/light-logo.png" alt="">
+          <span>Staticfile CDN</span>
+        </div>
+        <div class="pull-right">
+          <input type="text" id="search-bar-query" :placeholder="i18n('query-placeholder')" v-model="query" ref="query" @keypress="onQueryPress" />
+          <a :href="`about${language == 'en' ? '_en' : ''}.html#howto`"><button class="nav-item add-project">{{'add-one' | i18n}}</button></a>
+        </div>
+      </div>
+    </div>
+    <div class="loader" v-if="loading"></div>
+    <section id="libs" v-scroll:windoweditems="libs">
+      <div class="item typo" v-for="lib in libs" :id="`lib_${lib.name}`">
+        <h3>{{lib.name}}</h3>
+        <p class="item-description">{{lib.description}}</p>
+        <div class="protocal-toggler">
+          <a href="" :class="{ 'active': lib.domain == httpDomain }" @click.prevent="lib.domain = httpDomain">HTTP</a>
+          <a href="" :class="{ 'active': lib.domain == httpsDomain }" @click.prevent="lib.domain = httpsDomain">HTTPS</a>
+        </div>
+        <table>
+          <tbody>
+            <tr v-for="asset in [lib.assets[0]]">
+              <th><small>[最新版]</small> {{asset.version}}</th>
+              <td>
+                <pre v-for="file in asset.files"><code @mouseenter="hoverToSelect" @click="clickToCopy">{{lib.domain}}/{{lib.name}}/{{asset.version}}/{{file}}</code></pre>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="item-meta">
+          <a v-if="lib.homepage" :href="lib.homepage" target="_blank">{{'homepage' | i18n}}</a>
+          <span v-if="lib.homepage">/</span>
+          <a v-if="lib.repositories[0].url" :href="lib.repositories[0].url" target="_blank">{{'source' | i18n}}</a>
+          <span v-if="lib.repositories[0].url">/</span>
+          <a v-if="lib.assets.length > 1" :href="`#id_${lib.name}`" @click="lib.showMoreVersions = !lib.showMoreVersions">{{'other-versions' | i18n}} →</a>
+        </div>
+        <table class="item-others" v-if="lib.assets.length > 1" :class="{ 'show-table': lib.showMoreVersions }">
+          <tbody>
+            <tr v-for="asset in lib.assets.slice(1)">
+              <th>{{asset.version}}</th>
+              <td>
+                <pre v-for="file in asset.files"><code @mouseenter="hoverToSelect" @click="clickToCopy">{{lib.domain}}/{{lib.name}}/{{asset.version}}/{{file}}</code></pre>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <div class="typo" id="footer">
+      <div class="g-container">
+        <p id="power"><a href="http://qiniu.com" target="_blank"><img src="assets/images/qiniu.png"></a><br><small>{{'powered' | i18n}}</small></p>
+        <p><small>备案号 沪ICP备11037377号-26</small></p>
+        <small>© Copyright 2014 - 2016 <a href="http://staticfile.org">staticfile.org</a>. Built upon love.</small>
+      </div>
+    </div>
+  </div>
+  <script src="assets/js/stickyfill.min.js"></script>
+  <script src="assets/js/vue.min.js"></script>
+  <script src="assets/js/build.js"></script>
+</body>
+</html>

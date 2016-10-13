@@ -1,0 +1,19 @@
+{
+  "name": "staticfile",
+  "version": "1.0.0",
+  "description": "Staticfile.org Website",
+  "main": "index.js",
+  "scripts": {
+    "build": "./node_modules/.bin/babel --presets es2015 assets/js/main.js -o assets/js/build.js"
+  },
+  "keywords": [
+    "staticfile",
+    "cdn"
+  ],
+  "author": "iwillwen",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.16.0",
+    "babel-preset-es2015": "^6.16.0"
+  }
+}

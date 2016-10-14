@@ -61,8 +61,7 @@
       loading: true,
       language: 'zh',
       sticky: false,
-      messageVisible: false,
-
+      
       apiRoot: 'http://api.staticfile.qiniu.io/v1/',
       httpDomain: 'http://cdn.staticfile.org',
       httpsDomain: 'https://staticfile.qnssl.com'
@@ -152,6 +151,7 @@
         return libs.map(lib => {
           lib.domain = this.httpsDomain
           lib.showMoreVersions = false
+          lib.copyTip = '点击直接复制'
 
           return lib
         })
@@ -193,13 +193,12 @@
         }
       },
 
-      clickToCopy(e) {
-        this.messageVisible = true
+      clickToCopy(lib) {
         document.execCommand('copy')
+        lib.copyTip = '复制成功'
         setTimeout(() => {
-          this.messageVisible = false
-        }, 3000)
-        this.hoverToSelect(e)
+          lib.copyTip = '点击直接复制'
+        }, 2000)
       },
 
       onStuck() { this.searchBarSticky = true },

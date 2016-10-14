@@ -36,6 +36,7 @@ var autoComplete = (function(){
             offsetLeft: 0,
             offsetTop: 1,
             cache: 1,
+            onSuggestionsShow: function() {},
             menuClass: '',
             renderItem: function (item, search){
                 // escape special characters
@@ -70,7 +71,7 @@ var autoComplete = (function(){
                     that.sc.style.display = 'block';
                     if (!that.sc.maxHeight) { that.sc.maxHeight = parseInt((window.getComputedStyle ? getComputedStyle(that.sc, null) : that.sc.currentStyle).maxHeight); }
                     if (!that.sc.suggestionHeight) that.sc.suggestionHeight = that.sc.querySelector('.autocomplete-suggestion').offsetHeight;
-                    if (that.sc.suggestionHeight)
+                    if (that.sc.suggestionHeight) {
                         if (!next) that.sc.scrollTop = 0;
                         else {
                             var scrTop = that.sc.scrollTop, selTop = next.getBoundingClientRect().top - that.sc.getBoundingClientRect().top;
@@ -79,6 +80,8 @@ var autoComplete = (function(){
                             else if (selTop < 0)
                                 that.sc.scrollTop = selTop + scrTop;
                         }
+                    }
+                    o.onSuggestionsShow()
                 }
             }
             addEvent(window, 'resize', that.updateSC);

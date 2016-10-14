@@ -239,7 +239,9 @@
         }).files;
       },
       openSelect: function openSelect(lib) {
-        lib.expanded = !lib.expanded;
+        var expanded = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : !lib.expanded;
+
+        lib.expanded = expanded;
       }
     }
   });

@@ -219,8 +219,8 @@
         lib.files = lib.assets.find(asset => asset.version === version).files
       },
 
-      openSelect(lib) {
-        lib.expanded = !lib.expanded
+      openSelect(lib, expanded = !lib.expanded) {
+        lib.expanded = expanded
       }
     }
   })

@@ -81,7 +81,9 @@ var autoComplete = (function(){
                                 that.sc.scrollTop = selTop + scrTop;
                         }
                     }
-                    o.onSuggestionsShow()
+                    if (!next) {
+                        o.onSuggestionsShow()   
+                    }
                 }
             }
             addEvent(window, 'resize', that.updateSC);

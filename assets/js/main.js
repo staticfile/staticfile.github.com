@@ -1,4 +1,3 @@
-Vue.config.devtools = true;
 (() => {
   const i18n = {
     default: 'zh',
@@ -61,6 +60,7 @@ Vue.config.devtools = true;
       popular: [],
       loading: true,
       language: 'zh',
+      sticky: false,
 
       apiRoot: 'http://api.staticfile.qiniu.io/v1/',
       httpDomain: 'http://cdn.staticfile.org',
@@ -78,25 +78,51 @@ Vue.config.devtools = true;
         language = query.ln
         this.language = query.ln
       }
-      
+
       Stickyfill.add(this.$refs.searchBar)
+      this.$refs.searchBar.onModeChange = mode => {
+        this.sticky = mode > 0
+      }
+
+      const ac1 = new autoComplete({
+        selector: this.$refs.query,
+        minChars: 1,
+        source(term, response) {
+          fetch(vm.apiRoot + `search?q=${term}`)
+            .then(res => res.json())
+            .then(data => {
+              response(data.libs.map(lib => lib.name))
+            })
+        },
+        onSelect(e, val) {
+          vm.query = val
+          vm.fetchLib(val)
+        }
+      })
+
+      const ac2 = new autoComplete({
+        selector: this.$refs.searchBarQuery,
+        minChars: 1,
+        source(term, response) {
+          fetch(vm.apiRoot + `search?q=${term}`)
+            .then(res => res.json())
+            .then(data => {
+              response(data.libs.map(lib => lib.name))
+            })
+        },
+        onSelect(e, val) {
+          vm.query = val
+          vm.fetchLib(val)
+        }
+      })
+
       this.loadPopular()
     },
 
     watch: {
-      query: (() => {
-        let timer = null
-
-        return val => {
-          if (val) return
-
-          if (timer) clearTimeout(timer)
-
-          timer = setTimeout(() => {
-            vm.loadPopular()
-          }, 200)
-        }
-      })()
+      query(val){
+        if (!val) return this.loadPopular()
+      }
     },
 
     filters: {
@@ -121,28 +147,6 @@ Vue.config.devtools = true;
           })
       },
 
-      onHeaderQueryPress(e) {
-        window.scrollTo(0, this.$refs.searchBar.offsetTop)
-        this.query += e.key
-        this.$refs.query.focus()
-      },
-
-      onQueryPress: (() => {
-        let timer = null
-
-        return function() {
-          setTimeout(() => {
-            if (timer) {
-              clearTimeout(timer)
-            }
-
-            timer = setTimeout(() => {
-              vm.queryLib(vm.query)
-            }, 500)
-          }, 200)
-        }
-      })(),
-
       handleResponse(libs) {
         return libs.map(lib => {
           lib.domain = this.httpDomain
@@ -160,6 +164,17 @@ Vue.config.devtools = true;
           .then(data => {
             this.loading = false
             this.libs = this.handleResponse(data.libs)
+          })
+      },
+
+      fetchLib(name) {
+        this.loading = true
+        this.libs = []
+        fetch(this.apiRoot + `packages/${name}`)
+          .then(res => res.json())
+          .then(data => {
+            this.loading = false
+            this.libs = this.handleResponse([ data ])
           })
       },
 

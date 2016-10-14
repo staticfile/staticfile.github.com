@@ -1,6 +1,5 @@
 'use strict';
 
-Vue.config.devtools = true;
 (function () {
   var _i18n = {
     default: 'zh',
@@ -63,6 +62,7 @@ Vue.config.devtools = true;
       popular: [],
       loading: true,
       language: 'zh',
+      sticky: false,
 
       apiRoot: 'http://api.staticfile.qiniu.io/v1/',
       httpDomain: 'http://cdn.staticfile.org',
@@ -70,6 +70,8 @@ Vue.config.devtools = true;
     },
 
     mounted: function mounted() {
+      var _this = this;
+
       var query = {};
       location.search.substr(1).split('&').map(function (s) {
         return s.split('=');
@@ -83,24 +85,54 @@ Vue.config.devtools = true;
       }
 
       Stickyfill.add(this.$refs.searchBar);
+      this.$refs.searchBar.onModeChange = function (mode) {
+        _this.sticky = mode > 0;
+      };
+
+      var ac1 = new autoComplete({
+        selector: this.$refs.query,
+        minChars: 1,
+        source: function source(term, response) {
+          fetch(vm.apiRoot + ('search?q=' + term)).then(function (res) {
+            return res.json();
+          }).then(function (data) {
+            response(data.libs.map(function (lib) {
+              return lib.name;
+            }));
+          });
+        },
+        onSelect: function onSelect(e, val) {
+          vm.query = val;
+          vm.fetchLib(val);
+        }
+      });
+
+      var ac2 = new autoComplete({
+        selector: this.$refs.searchBarQuery,
+        minChars: 1,
+        source: function source(term, response) {
+          fetch(vm.apiRoot + ('search?q=' + term)).then(function (res) {
+            return res.json();
+          }).then(function (data) {
+            response(data.libs.map(function (lib) {
+              return lib.name;
+            }));
+          });
+        },
+        onSelect: function onSelect(e, val) {
+          vm.query = val;
+          vm.fetchLib(val);
+        }
+      });
+
       this.loadPopular();
     },
 
 
     watch: {
-      query: function () {
-        var timer = null;
-
-        return function (val) {
-          if (val) return;
-
-          if (timer) clearTimeout(timer);
-
-          timer = setTimeout(function () {
-            vm.loadPopular();
-          }, 200);
-        };
-      }()
+      query: function query(val) {
+        if (!val) return this.loadPopular();
+      }
     },
 
     filters: {
@@ -111,7 +143,7 @@ Vue.config.devtools = true;
 
     methods: {
       loadPopular: function loadPopular() {
-        var _this = this;
+        var _this2 = this;
 
         if (this.popular.length > 1) {
           this.loading = false;
@@ -122,53 +154,42 @@ Vue.config.devtools = true;
         fetch(this.apiRoot + 'popular').then(function (res) {
           return res.json();
         }).then(function (data) {
-          _this.loading = false;
-          _this.libs = _this.popular = _this.handleResponse(data.libs);
+          _this2.loading = false;
+          _this2.libs = _this2.popular = _this2.handleResponse(data.libs);
         });
       },
-      onHeaderQueryPress: function onHeaderQueryPress(e) {
-        window.scrollTo(0, this.$refs.searchBar.offsetTop);
-        this.query += e.key;
-        this.$refs.query.focus();
-      },
-
-
-      onQueryPress: function () {
-        var timer = null;
-
-        return function () {
-          setTimeout(function () {
-            if (timer) {
-              clearTimeout(timer);
-            }
-
-            timer = setTimeout(function () {
-              vm.queryLib(vm.query);
-            }, 500);
-          }, 200);
-        };
-      }(),
-
       handleResponse: function handleResponse(libs) {
-        var _this2 = this;
+        var _this3 = this;
 
         return libs.map(function (lib) {
-          lib.domain = _this2.httpDomain;
+          lib.domain = _this3.httpDomain;
           lib.showMoreVersions = false;
 
           return lib;
         });
       },
       queryLib: function queryLib(query) {
-        var _this3 = this;
+        var _this4 = this;
 
         this.loading = true;
         this.libs = [];
         fetch(this.apiRoot + ('search?q=' + query)).then(function (res) {
           return res.json();
         }).then(function (data) {
-          _this3.loading = false;
-          _this3.libs = _this3.handleResponse(data.libs);
+          _this4.loading = false;
+          _this4.libs = _this4.handleResponse(data.libs);
+        });
+      },
+      fetchLib: function fetchLib(name) {
+        var _this5 = this;
+
+        this.loading = true;
+        this.libs = [];
+        fetch(this.apiRoot + ('packages/' + name)).then(function (res) {
+          return res.json();
+        }).then(function (data) {
+          _this5.loading = false;
+          _this5.libs = _this5.handleResponse([data]);
         });
       },
       hoverToSelect: function hoverToSelect(e) {

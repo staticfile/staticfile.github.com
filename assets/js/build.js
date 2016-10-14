@@ -165,6 +165,7 @@
         return libs.map(function (lib) {
           lib.domain = _this3.httpsDomain;
           lib.showMoreVersions = false;
+          lib.copyTip = '点击直接复制';
 
           return lib;
         });
@@ -206,15 +207,13 @@
           selection.addRange(_range);
         }
       },
-      clickToCopy: function clickToCopy(e) {
-        var _this6 = this;
-
-        this.messageVisible = true;
+      clickToCopy: function clickToCopy(lib) {
         document.execCommand('copy');
+        lib.copyTip = '复制成功';
         setTimeout(function () {
-          _this6.messageVisible = false;
-        }, 3000);
-        this.hoverToSelect(e);
+          lib.copyTip = '点击直接复制';
+        }, 2000);
+        // this.hoverToSelect(e)
       },
       onStuck: function onStuck() {
         this.searchBarSticky = true;

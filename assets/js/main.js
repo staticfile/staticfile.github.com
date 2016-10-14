@@ -61,6 +61,7 @@
       loading: true,
       language: 'zh',
       sticky: false,
+      messageVisible: false,
 
       apiRoot: 'http://api.staticfile.qiniu.io/v1/',
       httpDomain: 'http://cdn.staticfile.org',
@@ -149,7 +150,7 @@
 
       handleResponse(libs) {
         return libs.map(lib => {
-          lib.domain = this.httpDomain
+          lib.domain = this.httpsDomain
           lib.showMoreVersions = false
 
           return lib
@@ -193,7 +194,11 @@
       },
 
       clickToCopy(e) {
+        this.messageVisible = true
         document.execCommand('copy')
+        setTimeout(() => {
+          this.messageVisible = false
+        }, 3000)
         this.hoverToSelect(e)
       },
 

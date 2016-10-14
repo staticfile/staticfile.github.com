@@ -63,6 +63,7 @@
       loading: true,
       language: 'zh',
       sticky: false,
+      messageVisible: false,
 
       apiRoot: 'http://api.staticfile.qiniu.io/v1/',
       httpDomain: 'http://cdn.staticfile.org',
@@ -162,7 +163,7 @@
         var _this3 = this;
 
         return libs.map(function (lib) {
-          lib.domain = _this3.httpDomain;
+          lib.domain = _this3.httpsDomain;
           lib.showMoreVersions = false;
 
           return lib;
@@ -206,7 +207,13 @@
         }
       },
       clickToCopy: function clickToCopy(e) {
+        var _this6 = this;
+
+        this.messageVisible = true;
         document.execCommand('copy');
+        setTimeout(function () {
+          _this6.messageVisible = false;
+        }, 3000);
         this.hoverToSelect(e);
       },
       onStuck: function onStuck() {

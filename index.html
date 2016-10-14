@@ -58,8 +58,8 @@
         <h3>{{lib.name}}</h3>
         <p class="item-description">{{lib.description}}</p>
         <div class="protocal-toggler">
-          <a href="" :class="{ 'active': lib.domain == httpDomain }" @click.prevent="lib.domain = httpDomain">HTTP</a>
           <a href="" :class="{ 'active': lib.domain == httpsDomain }" @click.prevent="lib.domain = httpsDomain">HTTPS</a>
+          <a href="" :class="{ 'active': lib.domain == httpDomain }" @click.prevent="lib.domain = httpDomain">HTTP</a>
         </div>
         <table>
           <tbody>
@@ -98,6 +98,14 @@
         <small>© Copyright 2014 - 2016 <a href="http://staticfile.org">staticfile.org</a>. Built upon love.</small>
       </div>
     </div>
+    <transition name="message-fade">
+      <div class="message" v-show="messageVisible">
+        <img class="message__icon" src="assets/images/success.svg">
+        <div class="message__group">
+          <p>复制成功</p>
+        </div>
+      </div>
+    </transition>
   </div>
   <script src="http://cdn.staticfile.org/fetch/0.10.1/fetch.min.js"></script>
   <script src="assets/js/stickyfill.min.js"></script>

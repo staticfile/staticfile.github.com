@@ -63,7 +63,7 @@
       loading: true,
       language: 'zh',
       sticky: false,
-      messageVisible: false,
+      copied: false,
 
       apiRoot: 'http://api.staticfile.qiniu.io/v1/',
       httpDomain: 'http://cdn.staticfile.org',
@@ -164,8 +164,12 @@
 
         return libs.map(function (lib) {
           lib.domain = _this3.httpsDomain;
-          lib.showMoreVersions = false;
-          lib.copyTip = '点击直接复制';
+          lib.versions = lib.assets.map(function (asset) {
+            return asset.version;
+          });
+          lib.version = lib.versions[0];
+          lib.expanded = false;
+          lib.files = lib.assets[0].files;
 
           return lib;
         });
@@ -208,12 +212,13 @@
         }
       },
       clickToCopy: function clickToCopy(lib) {
+        var _this6 = this;
+
         document.execCommand('copy');
-        lib.copyTip = '复制成功';
+        this.copied = true;
         setTimeout(function () {
-          lib.copyTip = '点击直接复制';
+          _this6.copied = false;
         }, 2000);
-        // this.hoverToSelect(e)
       },
       onStuck: function onStuck() {
         this.searchBarSticky = true;
@@ -223,6 +228,15 @@
       },
       i18n: function i18n(value) {
         return this.$options.filters.i18n(value);
+      },
+      selectVersion: function selectVersion(lib, version) {
+        lib.version = version;
+        lib.files = lib.assets.find(function (asset) {
+          return asset.version === version;
+        }).files;
+      },
+      openSelect: function openSelect(lib) {
+        lib.expanded = !lib.expanded;
       }
     }
   });

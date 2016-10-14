@@ -43,7 +43,7 @@
       'en': 'Other versions'
     },
     'powered': {
-      'zh': 'CDN 加速由七牛云存储提供',
+      'zh': 'CDN 加速由七牛云提供',
       'en': 'CDN service provided by Qiniu Tech'
     }
   }
@@ -219,8 +219,8 @@
         lib.files = lib.assets.find(asset => asset.version === version).files
       },
 
-      openSelect(lib) {
-        lib.expanded = !lib.expanded
+      openSelect(lib, expanded = !lib.expanded) {
+        lib.expanded = expanded
       }
     }
   })

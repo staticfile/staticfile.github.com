@@ -45,7 +45,7 @@
       'en': 'Other versions'
     },
     'powered': {
-      'zh': 'CDN 加速由七牛云存储提供',
+      'zh': 'CDN 加速由七牛云提供',
       'en': 'CDN service provided by Qiniu Tech'
     }
   };
@@ -239,7 +239,9 @@
         }).files;
       },
       openSelect: function openSelect(lib) {
-        lib.expanded = !lib.expanded;
+        var expanded = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : !lib.expanded;
+
+        lib.expanded = expanded;
       }
     }
   });

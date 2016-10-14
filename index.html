@@ -60,7 +60,7 @@
         <div class="protocal-toggler">
           <a href="" :class="{ 'active': lib.domain == httpsDomain }" @click.prevent="lib.domain = httpsDomain">HTTPS</a>
           <a href="" :class="{ 'active': lib.domain == httpDomain }" @click.prevent="lib.domain = httpDomain">HTTP</a>
-          <div class="versions-select" :class="{ expanded: lib.expanded }" @click.prevent="openSelect(lib)" @mouseleave.prevent="openSelect(lib)">
+          <div class="versions-select" :class="{ expanded: lib.expanded }" @click.prevent="openSelect(lib)" @mouseleave.prevent="openSelect(lib, false)">
             <span class="versions-select-value">{{lib.version}}</span>
             <div class="versions">
               <label :value="version" v-for="version in lib.versions" @click="selectVersion(lib, version)">{{version}}</label>

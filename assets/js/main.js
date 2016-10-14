@@ -93,6 +93,9 @@
             .then(res => res.json())
             .then(data => {
               response(data.libs.map(lib => lib.name))
+              setTimeout(function() {
+                document.querySelector('.autocomplete-suggestion').className += ' selected'
+              }, 10)
             })
         },
         onSelect(e, val) {

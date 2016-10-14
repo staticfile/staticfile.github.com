@@ -561,7 +561,7 @@ a {
 }
 
 .message {
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .12), 0 0 6px 0 rgba(0, 0, 0, .04);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .25), 0 0 6px 0 rgba(0, 0, 0, .1);
   min-width: 160px;
   padding: 10px 12px;
   box-sizing: border-box;
@@ -602,10 +602,10 @@ a {
 }
 
 .message__group p {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 20px;
   white-space:nowrap;
-  color: #8492a6;
+  color: #777;
   text-align: center;
 }
 

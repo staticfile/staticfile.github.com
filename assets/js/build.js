@@ -100,14 +100,14 @@
             response(data.libs.map(function (lib) {
               return lib.name;
             }));
-            setTimeout(function () {
-              document.querySelector('.autocomplete-suggestion').className += ' selected';
-            }, 10);
           });
         },
         onSelect: function onSelect(e, val) {
           vm.query = val;
           vm.fetchLib(val);
+        },
+        onSuggestionsShow: function onSuggestionsShow() {
+          document.querySelector('.autocomplete-suggestion').className += ' selected';
         }
       });
 

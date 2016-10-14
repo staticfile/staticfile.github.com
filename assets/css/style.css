@@ -319,6 +319,10 @@ a {
   margin: 2em 0 1em;
 }
 
+#power img {
+  max-width: 200px;
+}
+
 
 /* Loader */
 

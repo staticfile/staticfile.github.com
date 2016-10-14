@@ -61,7 +61,8 @@
       loading: true,
       language: 'zh',
       sticky: false,
-      
+      copied: false,
+
       apiRoot: 'http://api.staticfile.qiniu.io/v1/',
       httpDomain: 'http://cdn.staticfile.org',
       httpsDomain: 'https://staticfile.qnssl.com'
@@ -150,8 +151,10 @@
       handleResponse(libs) {
         return libs.map(lib => {
           lib.domain = this.httpsDomain
-          lib.showMoreVersions = false
-          lib.copyTip = '点击直接复制'
+          lib.versions = lib.assets.map(asset => asset.version)
+          lib.version = lib.versions[0]
+          lib.expanded = false
+          lib.files = lib.assets[0].files
 
           return lib
         })
@@ -195,9 +198,9 @@
 
       clickToCopy(lib) {
         document.execCommand('copy')
-        lib.copyTip = '复制成功'
+        this.copied = true
         setTimeout(() => {
-          lib.copyTip = '点击直接复制'
+          this.copied = false
         }, 2000)
       },
 
@@ -206,6 +209,15 @@
 
       i18n(value) {
         return this.$options.filters.i18n(value)
+      },
+
+      selectVersion(lib, version) {
+        lib.version = version
+        lib.files = lib.assets.find(asset => asset.version === version).files
+      },
+
+      openSelect(lib) {
+        lib.expanded = !lib.expanded
       }
     }
   })

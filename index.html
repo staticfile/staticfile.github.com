@@ -60,13 +60,18 @@
         <div class="protocal-toggler">
           <a href="" :class="{ 'active': lib.domain == httpsDomain }" @click.prevent="lib.domain = httpsDomain">HTTPS</a>
           <a href="" :class="{ 'active': lib.domain == httpDomain }" @click.prevent="lib.domain = httpDomain">HTTP</a>
+          <div class="versions-select" :class="{ expanded: lib.expanded }" @click.prevent="openSelect(lib)">
+            <span class="versions-select-value">{{lib.version}}</span>
+            <div class="versions">
+              <label :value="version" v-for="version in lib.versions" @click="selectVersion(lib, version)">{{version}}</label>
+            </div>
+          </div>
         </div>
         <table>
           <tbody>
-            <tr v-for="asset in [lib.assets[0]]">
-              <th><small>[最新版]</small> {{asset.version}}</th>
+            <tr>
               <td>
-                <pre v-for="file in asset.files" class="assetFile"><code @mouseenter="hoverToSelect" @click.prevent="clickToCopy(lib)">{{lib.domain}}/{{lib.name}}/{{asset.version}}/{{file}}</code><div class="tooltip">{{lib.copyTip}}</div></pre>
+                <pre v-for="file in lib.files" class="assetFile"><code @mouseenter="hoverToSelect" @click.prevent="clickToCopy(lib)">{{lib.domain}}/{{lib.name}}/{{lib.version}}/{{file}}</code></pre>
               </td>
             </tr>
           </tbody>
@@ -75,20 +80,7 @@
           <a v-if="lib.homepage" :href="lib.homepage" target="_blank">{{'homepage' | i18n}}</a>
           <span v-if="lib.homepage">/</span>
           <a v-if="lib.repositories[0] && lib.repositories[0].url" :href="lib.repositories[0].url" target="_blank">{{'source' | i18n}}</a>
-          <span v-if="lib.repositories[0] && lib.repositories[0].url">/</span>
-          <a v-if="lib.assets.length > 1" :href="`#id_${lib.name}`" @click="lib.showMoreVersions = !lib.showMoreVersions">{{'other-versions' | i18n}} →</a>
         </div>
-        <table class="item-others" v-if="lib.assets.length > 1" :class="{ 'show-table': lib.showMoreVersions }">
-          <tbody>
-            <tr v-for="asset in lib.assets.slice(1)">
-              <th>{{asset.version}}</th>
-              <td>
-                <pre v-for="file in asset.files" class="assetFile"><code @mouseenter="hoverToSelect" @click.prevent="clickToCopy(lib)">{{lib.domain}}/{{lib.name}}/{{asset.version}}/{{file}}</code>
-                <div class="tooltip">{{lib.copyTip}}</div></pre>
-              </td>
-            </tr>
-          </tbody>
-        </table>
       </div>
     </section>
     <div class="typo" id="footer">
@@ -98,6 +90,14 @@
         <small>© Copyright 2014 - 2016 <a href="http://staticfile.org">staticfile.org</a>. Built upon love.</small>
       </div>
     </div>
+    <transition name="message-fade">
+      <div class="message" v-show="copied">
+        <img class="message__icon" src="assets/images/success.svg" alt="">
+        <div class="message__group">
+          <p>复制成功</p>
+        </div>
+      </div>
+    </transition>
   </div>
   <script src="http://cdn.staticfile.org/fetch/0.10.1/fetch.min.js"></script>
   <script src="assets/js/stickyfill.min.js"></script>

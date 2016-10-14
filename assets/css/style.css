@@ -175,6 +175,7 @@ a {
   padding: 10px;
   background: #16a085;
   overflow: hidden;
+  z-index: 99;
 }
 
 #search-bar .logo img {

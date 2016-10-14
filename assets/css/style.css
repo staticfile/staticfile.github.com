@@ -56,6 +56,10 @@ a {
   padding-top: 30px;
 }
 
+a#logo {
+  color: #FFF;
+}
+
 .logo {
   display: inline-block;
 }

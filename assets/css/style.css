@@ -103,6 +103,7 @@ a {
 }
 
 .nav-item:hover {
+  color: #FFF !important;
   background: rgba(66, 205, 178, 0.7);
 }
 
@@ -415,10 +416,6 @@ a {
   text-decoration: underline;
 }
 
-.doc #header {
-  display: none;
-}
-
 .doc #githubbtn {
   background: none;
 }
@@ -446,26 +443,30 @@ a {
   color: #666;
 }
 
-.doc h1,
-.doc #nav {
-  float: none;
-  text-align: center;
-}
-
 .doc #nav {
   color: #ddd;
-  margin: 2rem auto 0;
   display: block;
 }
 
-.doc #nav a {
+.doc #nav a,
+.doc #nav .nav-item {
   color: #16a085;
 }
-
 .doc pre {
   padding: 10px 20px;
   background: #f8f8f8;
   line-height: 1.2;
+}
+
+.doc a#logo {
+  color: #444;
+}
+
+.doc #header {
+  width: 70%;
+  max-width: 900px;
+  box-sizing: content-box;
+  margin: 0 auto;
 }
 
 .doc .prettyprint {

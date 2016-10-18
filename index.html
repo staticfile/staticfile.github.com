@@ -53,7 +53,7 @@
       </div>
     </div>
     <div class="loader" v-if="loading"></div>
-    <section id="libs" v-scroll:windoweditems="libs">
+    <section id="libs">
       <div class="item typo" v-for="lib in libs" :id="`lib_${lib.name}`">
         <h3>{{lib.name}}</h3>
         <p class="item-description">{{lib.description}}</p>
@@ -99,10 +99,6 @@
       </div>
     </transition>
   </div>
-  <script src="http://cdn.staticfile.org/fetch/0.10.1/fetch.min.js"></script>
-  <script src="assets/js/stickyfill.min.js"></script>
-  <script src="assets/js/auto-complete.js"></script>
-  <script src="assets/js/vue.min.js"></script>
   <script src="assets/js/build.js"></script>
 </body>
 </html>

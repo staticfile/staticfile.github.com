@@ -65,7 +65,7 @@
 
       apiRoot: 'http://api.staticfile.qiniu.io/v1/',
       httpDomain: 'http://cdn.staticfile.org',
-      httpsDomain: 'https://staticfile.qnssl.com'
+      httpsDomain: 'https://cdn.staticfile.org'
     },
 
     mounted() {

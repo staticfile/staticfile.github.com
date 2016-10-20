@@ -67,7 +67,7 @@ const vm = new Vue({
     sticky: false,
     copied: false,
 
-    apiRoot: 'http://api.staticfile.qiniu.io/v1/',
+    apiRoot: 'https://api.staticfile.org/v1/',
     httpDomain: 'http://cdn.staticfile.org',
     httpsDomain: 'https://cdn.staticfile.org'
   },

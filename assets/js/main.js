@@ -47,8 +47,8 @@ const i18n = {
     'en': 'Other versions'
   },
   'powered': {
-    'zh': 'CDN 加速由七牛云提供',
-    'en': 'CDN service provided by Qiniu Tech'
+    'zh': 'CDN 加速由七牛云提供，技术社区掘金支持',
+    'en': 'CDN service provided by Qiniu Tech and supported by community Juejin'
   }
 }
 

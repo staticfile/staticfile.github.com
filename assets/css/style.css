@@ -6,7 +6,6 @@ body,
 html {
   padding: 0;
   margin: 0;
-  font-family: Helvetica Neue, Microsoft Yahei,Hiragino Sans GB,WenQuanYi Micro Hei,sans-serif;
 }
 
 pre {
@@ -122,17 +121,16 @@ a#logo {
   text-align: center;
 }
 
-#purpose-text {
+#purpose p#purpose-text {
   font-size: 15px;
   line-height: 24px;
   max-width: 600px;
   margin: 0 auto;
 }
 
-#install {
+#purpose #install {
   font-weight: 900;
   width: 370px;
-  max-width: 100%;
   margin: 15px auto;
   color: #5fbc0e;
   background: #000;
@@ -143,20 +141,19 @@ a#logo {
   border-radius: 3px;
   box-sizing: content-box;
   white-space: nowrap;
-  overflow-x: scroll;
 }
 
-#install em {
+#purpose #install em {
   color: #aaa;
   font-style: normal;
 }
 
-#install small {
+#purpose #install small {
   color: #aaa;
   font-weight: normal;
 }
 
-#install small a {
+#purpose #install small a {
   color: #ccc!important;
   text-decoration: underline;
 }
@@ -313,118 +310,12 @@ a#logo {
   background: rgba(66, 205, 178, 0.7);
 }
 
-/* Organization */
-
-#organization {
-    max-width: 600px;
-    margin: 2em auto 1em;
-    text-align: center;
-    color: #999;
-}
-
-#organization .logo {
-    max-height: 50px;
-}
-
-#organization .cross {
-    display: inline-block;
-    margin: 0 24px;
-    font-size: 30px;
-    vertical-align: top;
-}
-
-/* Social Share */
-
-#share {
-    max-width: 600px;
-    margin: 2em auto;
-    text-align: center;
-}
-
-#share-title {
-    font-size: 18px;
-    margin-bottom: 1em;
-}
-
-.share-button {
-    display: inline-block;
-    border: 1px solid #888;
-    border-radius: 4px;
-    color: #888;
-    text-decoration: none !important;
-    padding: 1px 7px;
-    vertical-align: baseline;
-    cursor: pointer;
-}
-
-.share-button + .share-button {
-    margin-left: 10px;
-}
-
-.share-button .share-button-logo {
-    height: 18px;
-    position: relative;
-    top: 3px;
-    margin-right: 5px;
-}
-
-#weibo {
-    color: #FF8141;
-    border-color: #FF8141;
-}
-
-#weibo svg {
-    fill: currentColor;
-}
-
-#weixin {
-    color: #58C867;
-    border-color: #58C867;
-    position: relative;
-}
-
-#weixin svg {
-    fill: currentColor;
-}
-
-#weixin .qr {
-    position: absolute;
-    top: 30px;
-    left: -15px;
-    width: 100px;
-    opacity: 0;
-    transform: scale(0);
-    transform-origin: top center;
-    transition: opacity .3s, transform .3s;
-}
-
-#weixin:hover .qr {
-    opacity: 1;
-    transform: scale(1);
-}
-
-#twitter {
-    color: #5AC7EE;
-    border-color: #5AC7EE;
-}
-
-#twitter svg {
-    fill: currentColor;
-}
-
-#github {
-    color: #313131;
-    border-color: #313131;
-}
-
-#github svg {
-    fill: currentColor;
-}
-
 
 /* Footer */
 
 #footer {
+  font-family: Georgia, serif;
+  font-style: italic;
   text-align: center;
   padding: 2% 10%;
 }

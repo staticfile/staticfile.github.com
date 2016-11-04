@@ -143,7 +143,7 @@ a#logo {
   border-radius: 3px;
   box-sizing: content-box;
   white-space: nowrap;
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 
 #install em {

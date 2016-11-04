@@ -122,16 +122,15 @@ a#logo {
   text-align: center;
 }
 
-#purpose-text {
+#purpose p#purpose-text {
   font-size: 15px;
   line-height: 24px;
   max-width: 600px;
   margin: 0 auto;
 }
 
-#install {
+#purpose #install {
   font-weight: 900;
-  width: 370px;
   max-width: 100%;
   margin: 15px auto;
   color: #5fbc0e;
@@ -142,27 +141,26 @@ a#logo {
   position: relative;
   border-radius: 3px;
   box-sizing: content-box;
-  white-space: nowrap;
-  overflow-x: auto;
 }
 
-#install em {
+#purpose #install em {
   color: #aaa;
   font-style: normal;
 }
 
-#install small {
+#purpose #install small {
   color: #aaa;
   font-weight: normal;
 }
 
-#install small a {
+#purpose #install small a {
   color: #ccc!important;
   text-decoration: underline;
 }
 
 #query #key {
   width: 75%;
+  width: 370px;
   max-width: 1000px;
   padding: 10px;
   margin: 0 auto;
@@ -171,6 +169,7 @@ a#logo {
   border: 5px solid #16a085;
   text-align: center;
   outline: none;
+  overflow-x: auto;
 }
 
 
@@ -208,6 +207,11 @@ a#logo {
   margin-left: 3rem;
 }
 
+@media only screen and (max-width: 500px) {
+  #search-bar #logo-placeholder {
+    display: none;
+  }
+}
 #search-bar #logo-placeholder.center {
   display: block;
   text-align: center;
@@ -284,11 +288,22 @@ a#logo {
 .item table {
   width: 100%;
   background: #fff;
+  display: block;
+  overflow-x: auto;
+  border: 1px solid #ddd;
 }
 
 .item table th {
   vertical-align: text-top;
   width: 20%
+}
+
+
+.item table td {
+  border: none;
+}
+.item table code {
+  white-space: nowrap;
 }
 
 .show-table {
@@ -336,95 +351,96 @@ a#logo {
 /* Social Share */
 
 #share {
-    max-width: 600px;
-    margin: 2em auto;
-    text-align: center;
+  max-width: 600px;
+  margin: 2em auto;
+  text-align: center;
 }
 
 #share-title {
-    font-size: 18px;
-    margin-bottom: 1em;
+  font-size: 18px;
+  margin-bottom: 1em;
 }
 
 .share-button {
-    display: inline-block;
-    border: 1px solid #888;
-    border-radius: 4px;
-    color: #888;
-    text-decoration: none !important;
-    padding: 1px 7px;
-    vertical-align: baseline;
-    cursor: pointer;
+  display: inline-block;
+  border: 1px solid #888;
+  border-radius: 4px;
+  color: #888;
+  text-decoration: none !important;
+  padding: 1px 7px;
+  vertical-align: baseline;
+  cursor: pointer;
 }
 
 .share-button + .share-button {
-    margin-left: 10px;
+  margin-left: 10px;
 }
 
 .share-button .share-button-logo {
-    height: 18px;
-    position: relative;
-    top: 3px;
-    margin-right: 5px;
+  height: 18px;
+  position: relative;
+  top: 3px;
+  margin-right: 5px;
 }
 
 #weibo {
-    color: #FF8141;
-    border-color: #FF8141;
+  color: #FF8141;
+  border-color: #FF8141;
 }
 
 #weibo svg {
-    fill: currentColor;
+  fill: currentColor;
 }
 
 #weixin {
-    color: #58C867;
-    border-color: #58C867;
-    position: relative;
+  color: #58C867;
+  border-color: #58C867;
+  position: relative;
 }
 
 #weixin svg {
-    fill: currentColor;
+  fill: currentColor;
 }
 
 #weixin .qr {
-    position: absolute;
-    top: 30px;
-    left: -15px;
-    width: 100px;
-    opacity: 0;
-    transform: scale(0);
-    transform-origin: top center;
-    transition: opacity .3s, transform .3s;
+  position: absolute;
+  top: 30px;
+  left: -15px;
+  width: 100px;
+  opacity: 0;
+  transform: scale(0);
+  transform-origin: top center;
+  transition: opacity .3s, transform .3s;
 }
 
 #weixin:hover .qr {
-    opacity: 1;
-    transform: scale(1);
+  opacity: 1;
+  transform: scale(1);
 }
 
 #twitter {
-    color: #5AC7EE;
-    border-color: #5AC7EE;
+  color: #5AC7EE;
+  border-color: #5AC7EE;
 }
 
 #twitter svg {
-    fill: currentColor;
+  fill: currentColor;
 }
 
 #github {
-    color: #313131;
-    border-color: #313131;
+  color: #313131;
+  border-color: #313131;
 }
 
 #github svg {
-    fill: currentColor;
+  fill: currentColor;
 }
-
 
 /* Footer */
 
 #footer {
+  font-family: Georgia, serif;
+  font-style: italic;
   text-align: center;
   padding: 2% 10%;
 }

@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import 'whatwg-fetch'
+// import 'whatwg-fetch'
 import autoComplete from './auto-complete'
 import Stickyfill from './stickyfill.min'
 
@@ -67,7 +67,9 @@ const vm = new Vue({
     sticky: false,
     copied: false,
 
-    apiRoot: 'https://api.staticfile.org/v1/',
+    populars: [ 'react', 'vue', 'angular.js', 'jquery' ],
+
+    apiRoot: 'https://api.cdnjs.com/libraries/',
     httpDomain: 'http://cdn.staticfile.org',
     httpsDomain: 'https://cdn.staticfile.org'
   },
@@ -93,10 +95,10 @@ const vm = new Vue({
       selector: this.$refs.query,
       minChars: 1,
       source(term, response) {
-        fetch(vm.apiRoot + `search?q=${term}`)
+        fetch(vm.apiRoot + `?search=${term}`)
           .then(res => res.json())
           .then(data => {
-            response(data.libs.map(lib => lib.name))
+            response(data.results.map(lib => lib.name))
           })
       },
       onSelect(e, val) {
@@ -112,7 +114,7 @@ const vm = new Vue({
       selector: this.$refs.searchBarQuery,
       minChars: 1,
       source(term, response) {
-        fetch(vm.apiRoot + `search?q=${term}`)
+        fetch(vm.apiRoot + `?search=${term}`)
           .then(res => res.json())
           .then(data => {
             response(data.libs.map(lib => lib.name))
@@ -147,11 +149,10 @@ const vm = new Vue({
         return
       }
 
-      fetch(this.apiRoot + 'popular')
-        .then(res => res.json())
-        .then(data => {
+      Promise.all(this.populars.map(name => fetch(this.apiRoot + name).then(res => res.json())))
+        .then(libs => {
           this.loading = false
-          this.libs = this.popular = this.handleResponse(data.libs)
+          this.libs = this.popular = this.handleResponse(libs)
         })
     },
 
@@ -170,7 +171,7 @@ const vm = new Vue({
     queryLib(query) {
       this.loading = true
       this.libs = []
-      fetch(this.apiRoot + `search?q=${query}`)
+      fetch(this.apiRoot + `?search=${query}`)
         .then(res => res.json())
         .then(data => {
           this.loading = false
@@ -181,7 +182,7 @@ const vm = new Vue({
     fetchLib(name) {
       this.loading = true
       this.libs = []
-      fetch(this.apiRoot + `packages/${name}`)
+      fetch(this.apiRoot + name)
         .then(res => res.json())
         .then(data => {
           this.loading = false

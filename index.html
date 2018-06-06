@@ -19,7 +19,7 @@
             <span class="typo-h1">Staticfile CDN</span>
           </div></a>
           <ul class="pull-right" id="nav">
-            <a :href="`about${language == 'en' ? '_en' : ''}.html#howto`"><li class="nav-item add-project">{{'add-one' | i18n}}</li></a>
+            <!-- <a :href="`about${language == 'en' ? '_en' : ''}.html#howto`"><li class="nav-item add-project">{{'add-one' | i18n}}</li></a> -->
             <a href="https://github.com/staticfile/static/issues"><li class="nav-item">{{'feedback' | i18n}}</li></a>
             <a :href="`about${language == 'en' ? '_en' : ''}.html`"><li class="nav-item">{{'about' | i18n}}</li></a>
             <a :href="`/?ln=${language == 'en' ? 'zh' : 'en'}`"><li class="nav-item">{{'switch-language' | i18n}}</li></a>
@@ -79,7 +79,7 @@
         <div class="item-meta">
           <a v-if="lib.homepage" :href="lib.homepage" target="_blank">{{'homepage' | i18n}}</a>
           <span v-if="lib.homepage">/</span>
-          <a v-if="lib.repositories[0] && lib.repositories[0].url" :href="lib.repositories[0].url" target="_blank">{{'source' | i18n}}</a>
+          <a v-if="lib.repositories && lib.repositories[0] && lib.repositories[0].url" :href="lib.repositories[0].url" target="_blank">{{'source' | i18n}}</a>
         </div>
       </div>
     </section>

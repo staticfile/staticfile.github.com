@@ -135,7 +135,7 @@
 
 	    populars: ['react', 'vue', 'angular.js', 'jquery'],
 
-	    apiRoot: 'https://api.cdnjs.com/libraries/',
+	    apiRoot: 'https://api.cdnjs.com/libraries',
 	    httpDomain: 'http://cdn.staticfile.org',
 	    httpsDomain: 'https://cdn.staticfile.org'
 	  },
